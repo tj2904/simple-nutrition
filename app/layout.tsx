@@ -11,9 +11,8 @@ const inter = Inter({
   subsets: ["latin"],
 });
 
-const title = "Next.js Prisma Postgres Auth Starter";
-const description =
-  "This is a Next.js starter kit that uses Next-Auth for simple email + password login and a Postgres database to persist the data.";
+const title = "Simple Nutrition";
+const description = "An app to keep track of your daily nutritional intake.";
 
 export const metadata: Metadata = {
   title,
@@ -23,7 +22,7 @@ export const metadata: Metadata = {
     title,
     description,
   },
-  metadataBase: new URL("https://nextjs-postgres-auth.vercel.app"),
+  metadataBase: new URL("https://simple-nutrition.vercel.app"),
   themeColor: "#FFF",
 };
 
@@ -33,11 +32,10 @@ export default async function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
+    <html lang="en" className="bg-slate-700 text-stone-200">
       <body className={inter.variable}>
         <Toaster />
         <Suspense fallback="Loading...">
-          {/* @ts-expect-error Async Server Component */}
           <AuthStatus />
         </Suspense>
         {children}
