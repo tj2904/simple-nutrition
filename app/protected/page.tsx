@@ -6,7 +6,7 @@ export default function Home() {
   return (
     <div className="flex  bg-slate-700">
       <div className="w-screen h-screen flex flex-col space-y-5 justify-center items-center">
-        <h1 className="text-white font-bold text-2xl">You're in! </h1>
+        <h1 className="text-white font-bold text-2xl">You&apos;re in! </h1>
         <GetNutrition />
         <SignOut />
       </div>
