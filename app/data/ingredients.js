@@ -19,10 +19,7 @@ const ingredients = [
     ingredient: "2% milk",
     ingredientId: 1174,
   },
-  {
-    ingredient: "5 spice powder",
-    ingredientId: 1002002,
-  },
+
   {
     ingredient: "85% lean ground beef",
     ingredientId: 23567,
@@ -39,46 +36,7 @@ const ingredients = [
     ingredient: "95% lean ground beef",
     ingredientId: 23557,
   },
-  {
-    ingredient: "acai berry powder",
-    ingredientId: 99094,
-  },
-  {
-    ingredient: "acai juice",
-    ingredientId: 98896,
-  },
-  {
-    ingredient: "achiote",
-    ingredientId: 10711111,
-  },
-  {
-    ingredient: "achiote powder",
-    ingredientId: 93648,
-  },
-  {
-    ingredient: "achiote seeds",
-    ingredientId: 10093648,
-  },
-  {
-    ingredient: "acini di pepe",
-    ingredientId: 93647,
-  },
-  {
-    ingredient: "acorn squash",
-    ingredientId: 11482,
-  },
-  {
-    ingredient: "active dry yeast",
-    ingredientId: 18375,
-  },
-  {
-    ingredient: "adobo sauce",
-    ingredientId: 6979,
-  },
-  {
-    ingredient: "adobo seasoning",
-    ingredientId: 1012020,
-  },
+
   {
     ingredient: "adzuki beans",
     ingredientId: 16002,
@@ -95,54 +53,22 @@ const ingredients = [
     ingredient: "aged balsamic vinegar",
     ingredientId: 1002069,
   },
-  {
-    ingredient: "ahi tuna",
-    ingredientId: 15117,
-  },
+
   {
     ingredient: "aioli",
     ingredientId: 93758,
   },
-  {
-    ingredient: "aji amarillo",
-    ingredientId: 10311819,
-  },
-  {
-    ingredient: "aji amarillo paste",
-    ingredientId: 1006973,
-  },
-  {
-    ingredient: "ajwain",
-    ingredientId: 99017,
-  },
-  {
-    ingredient: "albacore tuna in water",
-    ingredientId: 15126,
-  },
-  {
-    ingredient: "alcohol",
-    ingredientId: 14037,
-  },
+
   {
     ingredient: "alcohol free vanilla flavor",
     ingredientId: 1012050,
   },
-  {
-    ingredient: "ale",
-    ingredientId: 10414003,
-  },
-  {
-    ingredient: "aleppo pepper",
-    ingredientId: 1062009,
-  },
+
   {
     ingredient: "alfalfa sprouts",
     ingredientId: 10111001,
   },
-  {
-    ingredient: "alfredo pasta sauce",
-    ingredientId: 93606,
-  },
+
   {
     ingredient: "all natural egg",
     ingredientId: 1123,
@@ -151,10 +77,7 @@ const ingredients = [
     ingredient: "all purpose flour",
     ingredientId: 20081,
   },
-  {
-    ingredient: "all spice",
-    ingredientId: 2001,
-  },
+
   {
     ingredient: "all-bran",
     ingredientId: 8001,
@@ -163,10 +86,7 @@ const ingredients = [
     ingredient: "allergy free chocolate chips",
     ingredientId: 98848,
   },
-  {
-    ingredient: "allspice berries",
-    ingredientId: 1002001,
-  },
+
   {
     ingredient: "almond",
     ingredientId: 12061,
@@ -187,10 +107,7 @@ const ingredients = [
     ingredient: "almond flour",
     ingredientId: 93740,
   },
-  {
-    ingredient: "almond joy",
-    ingredientId: 19065,
-  },
+
   {
     ingredient: "almond milk",
     ingredientId: 93607,
@@ -203,102 +120,27 @@ const ingredients = [
     ingredient: "almond paste",
     ingredientId: 12071,
   },
-  {
-    ingredient: "alo drink",
-    ingredientId: 99095,
-  },
-  {
-    ingredient: "alum powder",
-    ingredientId: 10118371,
-  },
-  {
-    ingredient: "aluminum free baking powder",
-    ingredientId: 18371,
-  },
-  {
-    ingredient: "amaranth",
-    ingredientId: 20001,
-  },
-  {
-    ingredient: "amaranth flour",
-    ingredientId: 93763,
-  },
+
   {
     ingredient: "amaretti biscuits",
     ingredientId: 93766,
   },
-  {
-    ingredient: "amaretto",
-    ingredientId: 10014534,
-  },
-  {
-    ingredient: "amchoor",
-    ingredientId: 98964,
-  },
-  {
-    ingredient: "american cheese",
-    ingredientId: 1253,
-  },
-  {
-    ingredient: "anaheim chile",
-    ingredientId: 10031015,
-  },
+
   {
     ingredient: "ancho chile",
     ingredientId: 10211962,
   },
-  {
-    ingredient: "ancho chile powder",
-    ingredientId: 1022009,
-  },
+
   {
     ingredient: "anchovies",
     ingredientId: 15001,
   },
-  {
-    ingredient: "anchovy oil",
-    ingredientId: 1004053,
-  },
-  {
-    ingredient: "anchovy paste",
-    ingredientId: 10015002,
-  },
-  {
-    ingredient: "andes mints",
-    ingredientId: 98917,
-  },
-  {
-    ingredient: "andouille",
-    ingredientId: 7064,
-  },
-  {
-    ingredient: "angel food cake",
-    ingredientId: 18088,
-  },
-  {
-    ingredient: "angel food cake mix",
-    ingredientId: 18087,
-  },
-  {
-    ingredient: "angel hair",
-    ingredientId: 10020420,
-  },
-  {
-    ingredient: "angostura bitters",
-    ingredientId: 93653,
-  },
+
   {
     ingredient: "animal cookies",
     ingredientId: 10118192,
   },
-  {
-    ingredient: "anise",
-    ingredientId: 2002,
-  },
-  {
-    ingredient: "anise extract",
-    ingredientId: 10611111,
-  },
+
   {
     ingredient: "anjou pear",
     ingredientId: 1009252,
@@ -307,18 +149,7 @@ const ingredients = [
     ingredient: "apple",
     ingredientId: 9003,
   },
-  {
-    ingredient: "apple butter",
-    ingredientId: 19294,
-  },
-  {
-    ingredient: "apple cider",
-    ingredientId: 1009016,
-  },
-  {
-    ingredient: "apple cider vinegar",
-    ingredientId: 2048,
-  },
+
   {
     ingredient: "apple jelly",
     ingredientId: 10019297,
@@ -327,14 +158,7 @@ const ingredients = [
     ingredient: "apple juice",
     ingredientId: 9016,
   },
-  {
-    ingredient: "apple pie filling",
-    ingredientId: 19312,
-  },
-  {
-    ingredient: "apple pie spice",
-    ingredientId: 1032027,
-  },
+
   {
     ingredient: "apple sauce",
     ingredientId: 9019,
@@ -355,26 +179,17 @@ const ingredients = [
     ingredient: "apricot nectar",
     ingredientId: 9036,
   },
-  {
-    ingredient: "arbol chile",
-    ingredientId: 11962,
-  },
+
   {
     ingredient: "arborio rice",
     ingredientId: 10020052,
   },
-  {
-    ingredient: "arrowroot",
-    ingredientId: 20003,
-  },
+
   {
     ingredient: "artichoke",
     ingredientId: 11007,
   },
-  {
-    ingredient: "artichoke bottoms",
-    ingredientId: 98959,
-  },
+
   {
     ingredient: "artichoke heart quarters",
     ingredientId: 93828,
@@ -383,38 +198,12 @@ const ingredients = [
     ingredient: "arugula",
     ingredientId: 11959,
   },
-  {
-    ingredient: "asafetida",
-    ingredientId: 1032035,
-  },
-  {
-    ingredient: "ash gourd",
-    ingredientId: 99179,
-  },
-  {
-    ingredient: "asiago",
-    ingredientId: 1001033,
-  },
+
   {
     ingredient: "Asian dumplings",
     ingredientId: 99034,
   },
-  {
-    ingredient: "asian fish sauce",
-    ingredientId: 6179,
-  },
-  {
-    ingredient: "Asian medley",
-    ingredientId: 10111583,
-  },
-  {
-    ingredient: "asian pear",
-    ingredientId: 9252,
-  },
-  {
-    ingredient: "asian sesame oil",
-    ingredientId: 4058,
-  },
+
   {
     ingredient: "asian toasted sesame dressing",
     ingredientId: 4016,
@@ -423,10 +212,7 @@ const ingredients = [
     ingredient: "asparagus",
     ingredientId: 11011,
   },
-  {
-    ingredient: "au jus",
-    ingredientId: 6996,
-  },
+
   {
     ingredient: "aubergine",
     ingredientId: 11209,
@@ -447,70 +233,7 @@ const ingredients = [
     ingredient: "baby back pork ribs",
     ingredientId: 10010204,
   },
-  {
-    ingredient: "baby beet",
-    ingredientId: 10111080,
-  },
-  {
-    ingredient: "baby bell peppers",
-    ingredientId: 10311821,
-  },
-  {
-    ingredient: "baby bella mushroom",
-    ingredientId: 11266,
-  },
-  {
-    ingredient: "baby bok choy",
-    ingredientId: 93636,
-  },
-  {
-    ingredient: "baby carrots",
-    ingredientId: 11960,
-  },
-  {
-    ingredient: "baby corn",
-    ingredientId: 10011168,
-  },
-  {
-    ingredient: "baby dill",
-    ingredientId: 2045,
-  },
-  {
-    ingredient: "baby eggplant",
-    ingredientId: 10011209,
-  },
-  {
-    ingredient: "baby greens",
-    ingredientId: 21052,
-  },
-  {
-    ingredient: "baby leeks",
-    ingredientId: 10011246,
-  },
-  {
-    ingredient: "baby lima beans",
-    ingredientId: 11032,
-  },
-  {
-    ingredient: "baby peas",
-    ingredientId: 11304,
-  },
-  {
-    ingredient: "baby potato",
-    ingredientId: 11352,
-  },
-  {
-    ingredient: "baby shrimp",
-    ingredientId: 15152,
-  },
-  {
-    ingredient: "baby spinach",
-    ingredientId: 11457,
-  },
-  {
-    ingredient: "baby zucchini",
-    ingredientId: 11953,
-  },
+
   {
     ingredient: "bacon bits",
     ingredientId: 10862,
@@ -523,26 +246,12 @@ const ingredients = [
     ingredient: "bagel",
     ingredientId: 18408,
   },
-  {
-    ingredient: "bagel chips",
-    ingredientId: 99098,
-  },
-  {
-    ingredient: "bags chai tea",
-    ingredientId: 13711111,
-  },
+
   {
     ingredient: "baguette",
     ingredientId: 18033,
   },
-  {
-    ingredient: "baharat",
-    ingredientId: 10093663,
-  },
-  {
-    ingredient: "bajra",
-    ingredientId: 99151,
-  },
+
   {
     ingredient: "baked beans",
     ingredientId: 16009,
@@ -555,46 +264,17 @@ const ingredients = [
     ingredient: "baked tortilla chips",
     ingredientId: 19433,
   },
-  {
-    ingredient: "bakers white chocolate",
-    ingredientId: 19087,
-  },
-  {
-    ingredient: "baking bar",
-    ingredientId: 19078,
-  },
-  {
-    ingredient: "baking chips",
-    ingredientId: 10019903,
-  },
+
   {
     ingredient: "baking cocoa",
     ingredientId: 19165,
   },
-  {
-    ingredient: "baking mix",
-    ingredientId: 18010,
-  },
+
   {
     ingredient: "baking potato",
     ingredientId: 11353,
   },
-  {
-    ingredient: "baking soda",
-    ingredientId: 18372,
-  },
-  {
-    ingredient: "balm mint",
-    ingredientId: 2064,
-  },
-  {
-    ingredient: "balsamic glaze",
-    ingredientId: 98998,
-  },
-  {
-    ingredient: "balsamic vinaigrette",
-    ingredientId: 4135,
-  },
+
   {
     ingredient: "balsamic vinegar",
     ingredientId: 2069,
@@ -615,42 +295,12 @@ const ingredients = [
     ingredient: "banana chips",
     ingredientId: 19400,
   },
-  {
-    ingredient: "banana flower",
-    ingredientId: 98987,
-  },
-  {
-    ingredient: "banana leaf",
-    ingredientId: 10011111,
-  },
-  {
-    ingredient: "banana liqueur",
-    ingredientId: 93779,
-  },
-  {
-    ingredient: "banana pepper",
-    ingredientId: 11976,
-  },
-  {
-    ingredient: "banana pepper rings",
-    ingredientId: 98903,
-  },
-  {
-    ingredient: "banana shallot",
-    ingredientId: 10011677,
-  },
-  {
-    ingredient: "banana shallots",
-    ingredientId: 11677,
-  },
+
   {
     ingredient: "barbecue sauce",
     ingredientId: 6150,
   },
-  {
-    ingredient: "barbecue seasoning",
-    ingredientId: 1062034,
-  },
+
   {
     ingredient: "barley",
     ingredientId: 20004,
@@ -667,10 +317,7 @@ const ingredients = [
     ingredient: "basil",
     ingredientId: 2044,
   },
-  {
-    ingredient: "basil infused oil",
-    ingredientId: 1044053,
-  },
+
   {
     ingredient: "basil pesto",
     ingredientId: 93698,
@@ -679,10 +326,7 @@ const ingredients = [
     ingredient: "basmati rice",
     ingredientId: 10020444,
   },
-  {
-    ingredient: "bay leaf",
-    ingredientId: 2004,
-  },
+
   {
     ingredient: "bay scallops",
     ingredientId: 15172,
@@ -699,18 +343,12 @@ const ingredients = [
     ingredient: "bean sprouts",
     ingredientId: 11043,
   },
-  {
-    ingredient: "bean thread noodles",
-    ingredientId: 16082,
-  },
+
   {
     ingredient: "beans",
     ingredientId: 16069,
   },
-  {
-    ingredient: "bee pollen",
-    ingredientId: 93603,
-  },
+
   {
     ingredient: "beef",
     ingredientId: 23572,
@@ -719,42 +357,12 @@ const ingredients = [
     ingredient: "beef back ribs",
     ingredientId: 23236,
   },
-  {
-    ingredient: "beef base",
-    ingredientId: 1016076,
-  },
-  {
-    ingredient: "beef bone",
-    ingredientId: 11611111,
-  },
-  {
-    ingredient: "beef bone broth",
-    ingredientId: 98904,
-  },
-  {
-    ingredient: "beef bouillon",
-    ingredientId: 6008,
-  },
-  {
-    ingredient: "beef bouillon cube",
-    ingredientId: 6076,
-  },
-  {
-    ingredient: "beef bouillon granules",
-    ingredientId: 1006076,
-  },
-  {
-    ingredient: "beef bouillon powder",
-    ingredientId: 6075,
-  },
+
   {
     ingredient: "beef brisket",
     ingredientId: 13023,
   },
-  {
-    ingredient: "beef chuck roast",
-    ingredientId: 13786,
-  },
+
   {
     ingredient: "beef cubes",
     ingredientId: 10013411,
@@ -771,18 +379,12 @@ const ingredients = [
     ingredient: "beef gravy",
     ingredientId: 6997,
   },
-  {
-    ingredient: "beef heart",
-    ingredientId: 13321,
-  },
+
   {
     ingredient: "beef jerky",
     ingredientId: 19002,
   },
-  {
-    ingredient: "beef liver",
-    ingredientId: 13325,
-  },
+
   {
     ingredient: "beef patties",
     ingredientId: 23507,
@@ -803,18 +405,12 @@ const ingredients = [
     ingredient: "beef short ribs",
     ingredientId: 13147,
   },
-  {
-    ingredient: "beef shoulder roast",
-    ingredientId: 13943,
-  },
+
   {
     ingredient: "beef sirloin tip roast",
     ingredientId: 23653,
   },
-  {
-    ingredient: "beef soup bone",
-    ingredientId: 10511111,
-  },
+
   {
     ingredient: "beef steak",
     ingredientId: 23232,
@@ -827,18 +423,7 @@ const ingredients = [
     ingredient: "beef strip loin",
     ingredientId: 13923,
   },
-  {
-    ingredient: "beef suet",
-    ingredientId: 13335,
-  },
-  {
-    ingredient: "beef tenderloin steaks",
-    ingredientId: 10023583,
-  },
-  {
-    ingredient: "beef top sirloin steak",
-    ingredientId: 23584,
-  },
+
   {
     ingredient: "beefsteak tomato",
     ingredientId: 10011529,
@@ -851,18 +436,7 @@ const ingredients = [
     ingredient: "beet",
     ingredientId: 11080,
   },
-  {
-    ingredient: "beet greens",
-    ingredientId: 11086,
-  },
-  {
-    ingredient: "belacan",
-    ingredientId: 93657,
-  },
-  {
-    ingredient: "belgian endive",
-    ingredientId: 11151,
-  },
+
   {
     ingredient: "bell pepper",
     ingredientId: 10211821,
@@ -871,42 +445,12 @@ const ingredients = [
     ingredient: "beluga lentils",
     ingredientId: 93718,
   },
-  {
-    ingredient: "berbere",
-    ingredientId: 98995,
-  },
+
   {
     ingredient: "berries",
     ingredientId: 1009054,
   },
-  {
-    ingredient: "berry medley",
-    ingredientId: 9054,
-  },
-  {
-    ingredient: "besan",
-    ingredientId: 16157,
-  },
-  {
-    ingredient: "beverage syrup",
-    ingredientId: 10242040,
-  },
-  {
-    ingredient: "bibb lettuce",
-    ingredientId: 11250,
-  },
-  {
-    ingredient: "bibb lettuce leaves",
-    ingredientId: 10011250,
-  },
-  {
-    ingredient: "big shells",
-    ingredientId: 10520420,
-  },
-  {
-    ingredient: "bird's eye chile",
-    ingredientId: 11670,
-  },
+
   {
     ingredient: "Biscoff spread",
     ingredientId: 99011,
@@ -919,30 +463,12 @@ const ingredients = [
     ingredient: "biscuit",
     ingredientId: 18009,
   },
-  {
-    ingredient: "bison",
-    ingredientId: 17330,
-  },
-  {
-    ingredient: "bitter gourd",
-    ingredientId: 11024,
-  },
-  {
-    ingredient: "bittersweet chocolate",
-    ingredientId: 19903,
-  },
-  {
-    ingredient: "bittersweet chocolate chips",
-    ingredientId: 10019071,
-  },
+
   {
     ingredient: "black beans",
     ingredientId: 16015,
   },
-  {
-    ingredient: "black cardamom pods",
-    ingredientId: 1012006,
-  },
+
   {
     ingredient: "black cherries",
     ingredientId: 9063,
@@ -959,10 +485,7 @@ const ingredients = [
     ingredient: "black eyed beans",
     ingredientId: 16063,
   },
-  {
-    ingredient: "black forest ham",
-    ingredientId: 93756,
-  },
+
   {
     ingredient: "black grapes",
     ingredientId: 9129,
@@ -971,18 +494,12 @@ const ingredients = [
     ingredient: "black licorice",
     ingredientId: 98851,
   },
-  {
-    ingredient: "black mustard seed",
-    ingredientId: 2024,
-  },
+
   {
     ingredient: "black olives",
     ingredientId: 1059195,
   },
-  {
-    ingredient: "black pepper",
-    ingredientId: 1002030,
-  },
+
   {
     ingredient: "black peppercorn",
     ingredientId: 2030,
@@ -991,22 +508,7 @@ const ingredients = [
     ingredient: "black peppercorns",
     ingredientId: 1022030,
   },
-  {
-    ingredient: "black plums",
-    ingredientId: 9279,
-  },
-  {
-    ingredient: "black quinoa",
-    ingredientId: 10020035,
-  },
-  {
-    ingredient: "black rice",
-    ingredientId: 10020036,
-  },
-  {
-    ingredient: "black sesame seeds",
-    ingredientId: 10012023,
-  },
+
   {
     ingredient: "black tea",
     ingredientId: 14355,
@@ -1019,14 +521,7 @@ const ingredients = [
     ingredient: "black treacle",
     ingredientId: 93774,
   },
-  {
-    ingredient: "black vinegar",
-    ingredientId: 1012053,
-  },
-  {
-    ingredient: "black walnuts",
-    ingredientId: 12154,
-  },
+
   {
     ingredient: "blackberries",
     ingredientId: 9042,
@@ -1035,30 +530,12 @@ const ingredients = [
     ingredient: "blackberry jam",
     ingredientId: 10419297,
   },
-  {
-    ingredient: "blackened seasoning",
-    ingredientId: 99003,
-  },
+
   {
     ingredient: "blanched almonds",
     ingredientId: 12062,
   },
-  {
-    ingredient: "blanched slivered almonds",
-    ingredientId: 10012062,
-  },
-  {
-    ingredient: "bleu cheese",
-    ingredientId: 1004,
-  },
-  {
-    ingredient: "bleu cheese crumbles",
-    ingredientId: 1001004,
-  },
-  {
-    ingredient: "bleu cheese dressing",
-    ingredientId: 43020,
-  },
+
   {
     ingredient: "block 1/3-less-fat cream cheese",
     ingredientId: 43274,
@@ -1067,18 +544,7 @@ const ingredients = [
     ingredient: "blood orange",
     ingredientId: 1009200,
   },
-  {
-    ingredient: "blood orange juice",
-    ingredientId: 1009206,
-  },
-  {
-    ingredient: "blood orange zest",
-    ingredientId: 1009216,
-  },
-  {
-    ingredient: "blue food coloring",
-    ingredientId: 1421111,
-  },
+
   {
     ingredient: "blueberries",
     ingredientId: 9050,
@@ -1095,26 +561,7 @@ const ingredients = [
     ingredient: "blueberry juice",
     ingredientId: 14623,
   },
-  {
-    ingredient: "boar",
-    ingredientId: 17158,
-  },
-  {
-    ingredient: "boar chop",
-    ingredientId: 10017158,
-  },
-  {
-    ingredient: "boar leg",
-    ingredientId: 10417158,
-  },
-  {
-    ingredient: "boca patty",
-    ingredientId: 16147,
-  },
-  {
-    ingredient: "bocconcini",
-    ingredientId: 93790,
-  },
+
   {
     ingredient: "bok choy",
     ingredientId: 11116,
@@ -1135,18 +582,12 @@ const ingredients = [
     ingredient: "bone in pork chops",
     ingredientId: 10036,
   },
-  {
-    ingredient: "bone in skin on chicken breast",
-    ingredientId: 1005057,
-  },
+
   {
     ingredient: "bone in skin on turkey breast",
     ingredientId: 1005191,
   },
-  {
-    ingredient: "bone in turkey breast",
-    ingredientId: 1005696,
-  },
+
   {
     ingredient: "bone-in beef short ribs",
     ingredientId: 10013147,
@@ -1155,26 +596,17 @@ const ingredients = [
     ingredient: "bone-in pork shoulder",
     ingredientId: 10072,
   },
-  {
-    ingredient: "boneless beef short ribs",
-    ingredientId: 13149,
-  },
+
   {
     ingredient: "boneless chicken breast",
     ingredientId: 5062,
   },
-  {
-    ingredient: "boneless chicken breast halves",
-    ingredientId: 1045062,
-  },
+
   {
     ingredient: "boneless chicken thighs",
     ingredientId: 5091,
   },
-  {
-    ingredient: "boneless chuck steak",
-    ingredientId: 23078,
-  },
+
   {
     ingredient: "boneless pork loin",
     ingredientId: 10225,
@@ -1191,30 +623,12 @@ const ingredients = [
     ingredient: "boneless turkey breast",
     ingredientId: 5696,
   },
-  {
-    ingredient: "bonito flakes",
-    ingredientId: 98898,
-  },
+
   {
     ingredient: "borlotti beans",
     ingredientId: 10016020,
   },
-  {
-    ingredient: "boston butt",
-    ingredientId: 10084,
-  },
-  {
-    ingredient: "bottle gourd",
-    ingredientId: 99105,
-  },
-  {
-    ingredient: "bottled garlic",
-    ingredientId: 10011215,
-  },
-  {
-    ingredient: "bottled ginger",
-    ingredientId: 10011216,
-  },
+
   {
     ingredient: "bouillon",
     ingredientId: 1006008,
@@ -1227,18 +641,7 @@ const ingredients = [
     ingredient: "bouillon powder",
     ingredientId: 1006075,
   },
-  {
-    ingredient: "bouquet garni",
-    ingredientId: 1012023,
-  },
-  {
-    ingredient: "bourbon",
-    ingredientId: 10014037,
-  },
-  {
-    ingredient: "bourbon vanilla extract",
-    ingredientId: 2050,
-  },
+
   {
     ingredient: "boursin cheese",
     ingredientId: 99188,
@@ -1251,10 +654,7 @@ const ingredients = [
     ingredient: "braeburn apple",
     ingredientId: 1009003,
   },
-  {
-    ingredient: "braggs liquid aminos",
-    ingredientId: 93767,
-  },
+
   {
     ingredient: "bramley apple",
     ingredientId: 1019003,
@@ -1267,18 +667,7 @@ const ingredients = [
     ingredient: "bran flakes",
     ingredientId: 8029,
   },
-  {
-    ingredient: "brandy",
-    ingredientId: 10114037,
-  },
-  {
-    ingredient: "branzino",
-    ingredientId: 15004,
-  },
-  {
-    ingredient: "brat",
-    ingredientId: 7013,
-  },
+
   {
     ingredient: "brazil nuts",
     ingredientId: 93710,
@@ -1287,46 +676,12 @@ const ingredients = [
     ingredient: "bread",
     ingredientId: 18064,
   },
-  {
-    ingredient: "bread bowl",
-    ingredientId: 99169,
-  },
-  {
-    ingredient: "bread crumbs",
-    ingredientId: 18079,
-  },
-  {
-    ingredient: "bread dough",
-    ingredientId: 99063,
-  },
-  {
-    ingredient: "bread flour",
-    ingredientId: 10120129,
-  },
-  {
-    ingredient: "bread machine yeast",
-    ingredientId: 10218375,
-  },
-  {
-    ingredient: "breadstick dough",
-    ingredientId: 98918,
-  },
-  {
-    ingredient: "breakfast links",
-    ingredientId: 7919,
-  },
+
   {
     ingredient: "breakfast sausage",
     ingredientId: 1027063,
   },
-  {
-    ingredient: "breakfast sausage patties",
-    ingredientId: 1047063,
-  },
-  {
-    ingredient: "breakfast syrup",
-    ingredientId: 19113,
-  },
+
   {
     ingredient: "brewed coffee",
     ingredientId: 14209,
@@ -1335,10 +690,7 @@ const ingredients = [
     ingredient: "brie",
     ingredientId: 1006,
   },
-  {
-    ingredient: "brine",
-    ingredientId: 93798,
-  },
+
   {
     ingredient: "brioche",
     ingredientId: 93730,
@@ -1375,10 +727,7 @@ const ingredients = [
     ingredient: "broccoli florets",
     ingredientId: 10011090,
   },
-  {
-    ingredient: "broccoli rabe",
-    ingredientId: 11096,
-  },
+
   {
     ingredient: "broccoli sprouts",
     ingredientId: 11001,
@@ -1387,10 +736,7 @@ const ingredients = [
     ingredient: "broccolini",
     ingredientId: 98840,
   },
-  {
-    ingredient: "broth",
-    ingredientId: 1006615,
-  },
+
   {
     ingredient: "brown gravy",
     ingredientId: 6998,
@@ -1407,26 +753,12 @@ const ingredients = [
     ingredient: "brown rice flour",
     ingredientId: 20090,
   },
-  {
-    ingredient: "brown rice noodles",
-    ingredientId: 99038,
-  },
-  {
-    ingredient: "brown rice syrup",
-    ingredientId: 93784,
-  },
-  {
-    ingredient: "brown rice vinegar",
-    ingredientId: 1022053,
-  },
+
   {
     ingredient: "brown sugar",
     ingredientId: 19334,
   },
-  {
-    ingredient: "brownie mix",
-    ingredientId: 18632,
-  },
+
   {
     ingredient: "browning sauce",
     ingredientId: 93768,
@@ -1447,38 +779,17 @@ const ingredients = [
     ingredient: "buckwheat flour",
     ingredientId: 20011,
   },
-  {
-    ingredient: "buffalo chicken sauce",
-    ingredientId: 98878,
-  },
+
   {
     ingredient: "buffalo mozzarella",
     ingredientId: 98870,
   },
-  {
-    ingredient: "bulgur",
-    ingredientId: 20012,
-  },
-  {
-    ingredient: "bulk pork sausage",
-    ingredientId: 1057063,
-  },
-  {
-    ingredient: "bulk sausage",
-    ingredientId: 7063,
-  },
-  {
-    ingredient: "burdock root",
-    ingredientId: 11104,
-  },
+
   {
     ingredient: "burger bun",
     ingredientId: 18350,
   },
-  {
-    ingredient: "burger skillet",
-    ingredientId: 99037,
-  },
+
   {
     ingredient: "burrata",
     ingredientId: 93617,
@@ -1499,10 +810,7 @@ const ingredients = [
     ingredient: "butter crackers",
     ingredientId: 18621,
   },
-  {
-    ingredient: "butter flavor shortening",
-    ingredientId: 4615,
-  },
+
   {
     ingredient: "butter milk",
     ingredientId: 1230,
@@ -1515,30 +823,7 @@ const ingredients = [
     ingredient: "butter substitute",
     ingredientId: 4073,
   },
-  {
-    ingredient: "buttercup squash",
-    ingredientId: 10011643,
-  },
-  {
-    ingredient: "Butterfinger",
-    ingredientId: 19069,
-  },
-  {
-    ingredient: "butterscotch",
-    ingredientId: 19085,
-  },
-  {
-    ingredient: "butterscotch chips",
-    ingredientId: 19070,
-  },
-  {
-    ingredient: "butterscotch pudding",
-    ingredientId: 19201,
-  },
-  {
-    ingredient: "butterscotch pudding mix",
-    ingredientId: 10019206,
-  },
+
   {
     ingredient: "button mushrooms",
     ingredientId: 11260,
@@ -1548,29 +833,15 @@ const ingredients = [
     ingredientId: 11109,
   },
   {
-    ingredient: "cabernet sauvignon",
-    ingredientId: 14097,
-  },
-  {
     ingredient: "cacao nibs",
     ingredientId: 98846,
   },
-  {
-    ingredient: "cachaca",
-    ingredientId: 93787,
-  },
-  {
-    ingredient: "cactus pads",
-    ingredientId: 11963,
-  },
+
   {
     ingredient: "caesar dressing",
     ingredientId: 43015,
   },
-  {
-    ingredient: "cajun seasoning",
-    ingredientId: 1032028,
-  },
+
   {
     ingredient: "cake flour",
     ingredientId: 10020129,
@@ -1587,34 +858,17 @@ const ingredients = [
     ingredient: "calf liver",
     ingredientId: 17202,
   },
-  {
-    ingredient: "calumet baking powder",
-    ingredientId: 10018371,
-  },
-  {
-    ingredient: "calvados",
-    ingredientId: 10214037,
-  },
+
   {
     ingredient: "camembert",
     ingredientId: 1007,
   },
-  {
-    ingredient: "campari",
-    ingredientId: 93788,
-  },
-  {
-    ingredient: "canadian bacon",
-    ingredientId: 10130,
-  },
+
   {
     ingredient: "candied cherries",
     ingredientId: 93742,
   },
-  {
-    ingredient: "candied citron",
-    ingredientId: 9426,
-  },
+
   {
     ingredient: "candied fruit",
     ingredientId: 98925,
@@ -1647,34 +901,16 @@ const ingredients = [
     ingredient: "candy corn",
     ingredientId: 93637,
   },
-  {
-    ingredient: "candy corn oreo cookies",
-    ingredientId: 10018166,
-  },
-  {
-    ingredient: "candy melting wafers",
-    ingredientId: 93775,
-  },
+
   {
     ingredient: "cane sugar",
     ingredientId: 19335,
   },
   {
-    ingredient: "canned anchovies",
-    ingredientId: 15002,
-  },
-  {
     ingredient: "canned beans",
     ingredientId: 10216034,
   },
-  {
-    ingredient: "canned beets",
-    ingredientId: 11609,
-  },
-  {
-    ingredient: "canned black beans",
-    ingredientId: 16018,
-  },
+
   {
     ingredient: "canned black eyed peas",
     ingredientId: 10016063,
@@ -1690,14 +926,6 @@ const ingredients = [
   {
     ingredient: "canned chick peas",
     ingredientId: 16058,
-  },
-  {
-    ingredient: "canned chicken",
-    ingredientId: 5311,
-  },
-  {
-    ingredient: "canned chipotle chile",
-    ingredientId: 11632,
   },
   {
     ingredient: "canned coconut milk",
@@ -1720,18 +948,6 @@ const ingredients = [
     ingredientId: 16054,
   },
   {
-    ingredient: "canned fire roasted tomatoes",
-    ingredientId: 98849,
-  },
-  {
-    ingredient: "canned great northern beans",
-    ingredientId: 16026,
-  },
-  {
-    ingredient: "canned green chile peppers",
-    ingredientId: 11980,
-  },
-  {
     ingredient: "canned kidney beans",
     ingredientId: 16034,
   },
@@ -1748,20 +964,8 @@ const ingredients = [
     ingredientId: 9218,
   },
   {
-    ingredient: "canned mushrooms",
-    ingredientId: 11264,
-  },
-  {
-    ingredient: "canned navy beans",
-    ingredientId: 16039,
-  },
-  {
     ingredient: "canned peas",
     ingredientId: 11306,
-  },
-  {
-    ingredient: "canned pigeon peas",
-    ingredientId: 10016102,
   },
   {
     ingredient: "canned pineapple",
@@ -1770,10 +974,6 @@ const ingredients = [
   {
     ingredient: "canned pinto beans",
     ingredientId: 16044,
-  },
-  {
-    ingredient: "canned pumpkin",
-    ingredientId: 11424,
   },
   {
     ingredient: "canned red beans",
@@ -1816,10 +1016,6 @@ const ingredients = [
     ingredientId: 10716050,
   },
   {
-    ingredient: "cannoli shells",
-    ingredientId: 98983,
-  },
-  {
     ingredient: "canola oil",
     ingredientId: 4582,
   },
@@ -1828,16 +1024,8 @@ const ingredients = [
     ingredientId: 9181,
   },
   {
-    ingredient: "cantaloupe balls",
-    ingredientId: 1009181,
-  },
-  {
     ingredient: "cape gooseberries",
     ingredientId: 9138,
-  },
-  {
-    ingredient: "capellini",
-    ingredientId: 11720420,
   },
   {
     ingredient: "caper berries",
@@ -1848,24 +1036,8 @@ const ingredients = [
     ingredientId: 2054,
   },
   {
-    ingredient: "capicola",
-    ingredientId: 93679,
-  },
-  {
-    ingredient: "captain crunch",
-    ingredientId: 99106,
-  },
-  {
     ingredient: "caramel",
     ingredientId: 19074,
-  },
-  {
-    ingredient: "Caramel Corn",
-    ingredientId: 19039,
-  },
-  {
-    ingredient: "caramel ice cream topping",
-    ingredientId: 19364,
   },
   {
     ingredient: "caramelized onion",
@@ -1888,22 +1060,6 @@ const ingredients = [
     ingredientId: 1002006,
   },
   {
-    ingredient: "caribbean jerk seasoning",
-    ingredientId: 1012009,
-  },
-  {
-    ingredient: "carob chips",
-    ingredientId: 19071,
-  },
-  {
-    ingredient: "carob powder",
-    ingredientId: 16055,
-  },
-  {
-    ingredient: "carp",
-    ingredientId: 15008,
-  },
-  {
     ingredient: "carrot",
     ingredientId: 11124,
   },
@@ -1924,26 +1080,6 @@ const ingredients = [
     ingredientId: 99088,
   },
   {
-    ingredient: "cassava",
-    ingredientId: 11134,
-  },
-  {
-    ingredient: "cassava flour",
-    ingredientId: 98927,
-  },
-  {
-    ingredient: "cat fish",
-    ingredientId: 15010,
-  },
-  {
-    ingredient: "catalina dressing",
-    ingredientId: 93649,
-  },
-  {
-    ingredient: "catsup",
-    ingredientId: 11935,
-  },
-  {
     ingredient: "cauliflower",
     ingredientId: 11135,
   },
@@ -1956,14 +1092,6 @@ const ingredients = [
     ingredientId: 10111135,
   },
   {
-    ingredient: "cavatappi",
-    ingredientId: 10320420,
-  },
-  {
-    ingredient: "cavatelli",
-    ingredientId: 12220420,
-  },
-  {
     ingredient: "caviar",
     ingredientId: 15012,
   },
@@ -1974,10 +1102,6 @@ const ingredients = [
   {
     ingredient: "cayenne",
     ingredientId: 2031,
-  },
-  {
-    ingredient: "cedar plank",
-    ingredientId: 11911111,
   },
   {
     ingredient: "celeriac",
@@ -1996,32 +1120,16 @@ const ingredients = [
     ingredientId: 2007,
   },
   {
-    ingredient: "celtic sea salt",
-    ingredientId: 1002047,
-  },
-  {
-    ingredient: "chablis",
-    ingredientId: 10014160,
-  },
-  {
     ingredient: "chai spice",
     ingredientId: 1012035,
   },
   {
-    ingredient: "challah roll",
+    ingredient: "champagne",
     ingredientId: 99189,
   },
   {
-    ingredient: "chambord",
-    ingredientId: 10514534,
-  },
-  {
-    ingredient: "champagne",
+    ingredient: "challah roll",
     ingredientId: 10043155,
-  },
-  {
-    ingredient: "champagne vinegar",
-    ingredientId: 1002068,
   },
   {
     ingredient: "chanterelle mushrooms",
@@ -2030,18 +1138,6 @@ const ingredients = [
   {
     ingredient: "chard",
     ingredientId: 11147,
-  },
-  {
-    ingredient: "chardonnay",
-    ingredientId: 14160,
-  },
-  {
-    ingredient: "chartreuse",
-    ingredientId: 99091,
-  },
-  {
-    ingredient: "chayote",
-    ingredientId: 11149,
   },
   {
     ingredient: "cheddar",
@@ -2068,14 +1164,6 @@ const ingredients = [
     ingredientId: 1188,
   },
   {
-    ingredient: "cheese pumpkin",
-    ingredientId: 10011422,
-  },
-  {
-    ingredient: "cheese ravioli",
-    ingredientId: 93832,
-  },
-  {
     ingredient: "cheese sticks",
     ingredientId: 98970,
   },
@@ -2088,16 +1176,8 @@ const ingredients = [
     ingredientId: 19057,
   },
   {
-    ingredient: "cheesecake pudding mix",
-    ingredientId: 99192,
-  },
-  {
     ingredient: "cherries",
     ingredientId: 9070,
-  },
-  {
-    ingredient: "cherry flavored gelatin",
-    ingredientId: 10419172,
   },
   {
     ingredient: "cherry jam",
@@ -2106,10 +1186,6 @@ const ingredients = [
   {
     ingredient: "cherry juice",
     ingredientId: 93677,
-  },
-  {
-    ingredient: "cherry pie filling",
-    ingredientId: 19314,
   },
   {
     ingredient: "cherry tomato",
@@ -2128,36 +1204,12 @@ const ingredients = [
     ingredientId: 99016,
   },
   {
-    ingredient: "chevre",
-    ingredientId: 1159,
-  },
-  {
-    ingredient: "chex cereal",
-    ingredientId: 8082,
-  },
-  {
-    ingredient: "chex corn cereal",
-    ingredientId: 8019,
-  },
-  {
-    ingredient: "chex mix",
-    ingredientId: 19033,
-  },
-  {
-    ingredient: "chex wheat cereal",
-    ingredientId: 99180,
-  },
-  {
     ingredient: "chia egg",
     ingredientId: 10012006,
   },
   {
     ingredient: "chia seed",
     ingredientId: 12006,
-  },
-  {
-    ingredient: "chianti",
-    ingredientId: 14108,
   },
   {
     ingredient: "chick peas",
@@ -2168,28 +1220,12 @@ const ingredients = [
     ingredientId: 1025006,
   },
   {
-    ingredient: "chicken base",
-    ingredientId: 6080,
-  },
-  {
     ingredient: "chicken bites",
     ingredientId: 1015006,
   },
   {
-    ingredient: "chicken bone",
-    ingredientId: 11711111,
-  },
-  {
     ingredient: "chicken bouillon",
     ingredientId: 6480,
-  },
-  {
-    ingredient: "chicken bouillon granules",
-    ingredientId: 1006080,
-  },
-  {
-    ingredient: "chicken bouillon powder",
-    ingredientId: 1016080,
   },
   {
     ingredient: "chicken breast tenderloins",
@@ -2204,20 +1240,12 @@ const ingredients = [
     ingredientId: 1025062,
   },
   {
-    ingredient: "chicken drumettes",
-    ingredientId: 1005100,
-  },
-  {
     ingredient: "chicken drumsticks",
     ingredientId: 5066,
   },
   {
     ingredient: "chicken drumsticks and thighs",
     ingredientId: 1005006,
-  },
-  {
-    ingredient: "chicken fat",
-    ingredientId: 4542,
   },
   {
     ingredient: "chicken feet",
@@ -2238,10 +1266,6 @@ const ingredients = [
   {
     ingredient: "chicken sausage",
     ingredientId: 93668,
-  },
-  {
-    ingredient: "chicken seasoning",
-    ingredientId: 2034,
   },
   {
     ingredient: "chicken stock",
@@ -2288,10 +1312,6 @@ const ingredients = [
     ingredientId: 43112,
   },
   {
-    ingredient: "chili mix",
-    ingredientId: 1022028,
-  },
-  {
     ingredient: "chili sauce",
     ingredientId: 6972,
   },
@@ -2332,14 +1352,6 @@ const ingredients = [
     ingredientId: 10419903,
   },
   {
-    ingredient: "chocolate coffee bean",
-    ingredientId: 19268,
-  },
-  {
-    ingredient: "chocolate cookie crust",
-    ingredientId: 28111,
-  },
-  {
     ingredient: "chocolate cookies",
     ingredientId: 18157,
   },
@@ -2364,24 +1376,12 @@ const ingredients = [
     ingredientId: 10019348,
   },
   {
-    ingredient: "Chocolate Easter Eggs",
-    ingredientId: 99112,
-  },
-  {
-    ingredient: "chocolate extract",
-    ingredientId: 13411111,
-  },
-  {
     ingredient: "chocolate frosting",
     ingredientId: 19226,
   },
   {
     ingredient: "chocolate glaze",
     ingredientId: 19375,
-  },
-  {
-    ingredient: "chocolate graham cracker crumbs",
-    ingredientId: 18608,
   },
   {
     ingredient: "chocolate hazelnut spread",
@@ -2408,28 +1408,8 @@ const ingredients = [
     ingredientId: 1103,
   },
   {
-    ingredient: "chocolate protein powder",
-    ingredientId: 99075,
-  },
-  {
-    ingredient: "chocolate pudding mix",
-    ingredientId: 19184,
-  },
-  {
     ingredient: "chocolate sandwich biscuits",
     ingredientId: 18166,
-  },
-  {
-    ingredient: "chocolate shavings",
-    ingredientId: 10219903,
-  },
-  {
-    ingredient: "chocolate soy pudding",
-    ingredientId: 93700,
-  },
-  {
-    ingredient: "chocolate sprinkles",
-    ingredientId: 10093645,
   },
   {
     ingredient: "chocolate syrup",
@@ -2488,10 +1468,6 @@ const ingredients = [
     ingredientId: 99020,
   },
   {
-    ingredient: "cinnamon schnapps",
-    ingredientId: 93731,
-  },
-  {
     ingredient: "cinnamon stick",
     ingredientId: 1002010,
   },
@@ -2518,10 +1494,6 @@ const ingredients = [
   {
     ingredient: "citrus fruit",
     ingredientId: 9431,
-  },
-  {
-    ingredient: "clam juice",
-    ingredientId: 14187,
   },
   {
     ingredient: "clams",
@@ -2563,10 +1535,7 @@ const ingredients = [
     ingredient: "coarse grain mustard",
     ingredientId: 1012046,
   },
-  {
-    ingredient: "coarse kosher salt",
-    ingredientId: 1082047,
-  },
+
   {
     ingredient: "coarse salt",
     ingredientId: 2047,
@@ -2606,10 +1575,6 @@ const ingredients = [
   {
     ingredient: "coco sugar",
     ingredientId: 93831,
-  },
-  {
-    ingredient: "COCOA KRISPIES",
-    ingredientId: 8014,
   },
   {
     ingredient: "cocoa puffs",
@@ -2668,14 +1633,6 @@ const ingredients = [
     ingredientId: 19227,
   },
   {
-    ingredient: "coconut rum",
-    ingredientId: 10314037,
-  },
-  {
-    ingredient: "coconut vinegar",
-    ingredientId: 98930,
-  },
-  {
     ingredient: "coconut water",
     ingredientId: 12119,
   },
@@ -2692,20 +1649,8 @@ const ingredients = [
     ingredientId: 13111111,
   },
   {
-    ingredient: "coffee flavored liqueur",
-    ingredientId: 93716,
-  },
-  {
     ingredient: "coffee granules",
     ingredientId: 14214,
-  },
-  {
-    ingredient: "cognac",
-    ingredientId: 10414037,
-  },
-  {
-    ingredient: "coix seed",
-    ingredientId: 99115,
   },
   {
     ingredient: "colby monterey jack cheese",
@@ -2726,10 +1671,6 @@ const ingredients = [
   {
     ingredient: "colored sprinkles",
     ingredientId: 93645,
-  },
-  {
-    ingredient: "complete seasoning",
-    ingredientId: 98999,
   },
   {
     ingredient: "comte cheese",
@@ -2766,18 +1707,6 @@ const ingredients = [
   {
     ingredient: "condensed tomato soup",
     ingredientId: 6159,
-  },
-  {
-    ingredient: "confectioners sugar",
-    ingredientId: 19336,
-  },
-  {
-    ingredient: "confectioners swerve",
-    ingredientId: 99084,
-  },
-  {
-    ingredient: "conversation hearts",
-    ingredientId: 99117,
   },
   {
     ingredient: "cooked angel hair pasta",
@@ -3043,10 +1972,7 @@ const ingredients = [
     ingredient: "cornichons",
     ingredientId: 11941,
   },
-  {
-    ingredient: "cornish game hen",
-    ingredientId: 5307,
-  },
+
   {
     ingredient: "cotija cheese",
     ingredientId: 1001019,
@@ -3055,10 +1981,7 @@ const ingredients = [
     ingredient: "country ham",
     ingredientId: 10151,
   },
-  {
-    ingredient: "country time lemonade mix",
-    ingredientId: 14287,
-  },
+
   {
     ingredient: "courgette",
     ingredientId: 11477,
@@ -3067,18 +1990,7 @@ const ingredients = [
     ingredient: "cous cous",
     ingredientId: 20028,
   },
-  {
-    ingredient: "crÃ¨me de cacao",
-    ingredientId: 93712,
-  },
-  {
-    ingredient: "crÃ¨me de menthe",
-    ingredientId: 14034,
-  },
-  {
-    ingredient: "crÃ¨me De Menthe Baking Chips",
-    ingredientId: 99054,
-  },
+
   {
     ingredient: "crab",
     ingredientId: 15136,
@@ -3095,14 +2007,7 @@ const ingredients = [
     ingredient: "cracked wheat",
     ingredientId: 93684,
   },
-  {
-    ingredient: "cracker crumb",
-    ingredientId: 10018621,
-  },
-  {
-    ingredient: "craisins",
-    ingredientId: 9079,
-  },
+
   {
     ingredient: "cranberries",
     ingredientId: 9078,
@@ -3163,10 +2068,7 @@ const ingredients = [
     ingredient: "cream of wheat",
     ingredientId: 8104,
   },
-  {
-    ingredient: "cream sherry",
-    ingredientId: 10214106,
-  },
+
   {
     ingredient: "cream soda",
     ingredientId: 14130,
@@ -3187,22 +2089,12 @@ const ingredients = [
     ingredient: "creme fraiche",
     ingredientId: 1001056,
   },
-  {
-    ingredient: "creole mustard",
-    ingredientId: 1002046,
-  },
-  {
-    ingredient: "creole seasoning",
-    ingredientId: 1002031,
-  },
+
   {
     ingredient: "crepes",
     ingredientId: 93732,
   },
-  {
-    ingredient: "crescent dinner rolls",
-    ingredientId: 93618,
-  },
+
   {
     ingredient: "crisp rice cereal",
     ingredientId: 8066,
@@ -3223,10 +2115,7 @@ const ingredients = [
     ingredient: "crunchy peanut butter",
     ingredientId: 10016098,
   },
-  {
-    ingredient: "crushed ice cubes",
-    ingredientId: 10014412,
-  },
+
   {
     ingredient: "crushed pineapple",
     ingredientId: 1019354,
@@ -3259,14 +2148,7 @@ const ingredients = [
     ingredient: "cumin seed",
     ingredientId: 2014,
   },
-  {
-    ingredient: "cup cake",
-    ingredientId: 18139,
-  },
-  {
-    ingredient: "curacao",
-    ingredientId: 99029,
-  },
+
   {
     ingredient: "curly endive",
     ingredientId: 11152,
@@ -3331,10 +2213,7 @@ const ingredients = [
     ingredient: "dandelion greens",
     ingredientId: 11207,
   },
-  {
-    ingredient: "dark beer",
-    ingredientId: 10014003,
-  },
+
   {
     ingredient: "dark brown sugar",
     ingredientId: 10019334,
@@ -3403,26 +2282,12 @@ const ingredients = [
     ingredient: "demerara",
     ingredientId: 10019908,
   },
-  {
-    ingredient: "demi glace",
-    ingredientId: 93612,
-  },
-  {
-    ingredient: "dessert oats",
-    ingredientId: 8121,
-  },
-  {
-    ingredient: "dessert wine",
-    ingredientId: 10014057,
-  },
+
   {
     ingredient: "diced ham",
     ingredientId: 99186,
   },
-  {
-    ingredient: "diced tomatoes with green chiles",
-    ingredientId: 10011885,
-  },
+
   {
     ingredient: "diet coke",
     ingredientId: 14146,
@@ -3435,10 +2300,7 @@ const ingredients = [
     ingredient: "dill pickle",
     ingredientId: 11937,
   },
-  {
-    ingredient: "dill pickle juice",
-    ingredientId: 93640,
-  },
+
   {
     ingredient: "dill pickle relish",
     ingredientId: 11944,
@@ -3463,10 +2325,7 @@ const ingredients = [
     ingredient: "ditalini",
     ingredientId: 10020499,
   },
-  {
-    ingredient: "dog",
-    ingredientId: 21118,
-  },
+
   {
     ingredient: "double cream",
     ingredientId: 1011053,
@@ -3659,26 +2518,7 @@ const ingredients = [
     ingredient: "dried tomatoes",
     ingredientId: 11955,
   },
-  {
-    ingredient: "dry cider",
-    ingredientId: 93807,
-  },
-  {
-    ingredient: "dry mustard",
-    ingredientId: 1002024,
-  },
-  {
-    ingredient: "dry onion soup mix",
-    ingredientId: 6094,
-  },
-  {
-    ingredient: "dry ranch dressing mix",
-    ingredientId: 93733,
-  },
-  {
-    ingredient: "dry riesling",
-    ingredientId: 14132,
-  },
+
   {
     ingredient: "dry roasted peanuts",
     ingredientId: 16090,
@@ -3687,14 +2527,7 @@ const ingredients = [
     ingredient: "dry seasoning rub",
     ingredientId: 1012034,
   },
-  {
-    ingredient: "dry sherry",
-    ingredientId: 10114106,
-  },
-  {
-    ingredient: "dry white wine",
-    ingredientId: 14106,
-  },
+
   {
     ingredient: "duck",
     ingredientId: 5139,
@@ -3799,22 +2632,7 @@ const ingredients = [
     ingredient: "elderflower",
     ingredientId: 11211111,
   },
-  {
-    ingredient: "elderflower liqueur",
-    ingredientId: 99126,
-  },
-  {
-    ingredient: "elk roast",
-    ingredientId: 35177,
-  },
-  {
-    ingredient: "elk sausages",
-    ingredientId: 10017338,
-  },
-  {
-    ingredient: "elk tenderloin",
-    ingredientId: 10017166,
-  },
+
   {
     ingredient: "emmental cheese",
     ingredientId: 1040,
@@ -3827,10 +2645,7 @@ const ingredients = [
     ingredient: "enchilada sauce",
     ingredientId: 6599,
   },
-  {
-    ingredient: "Ener-G egg replacer",
-    ingredientId: 93658,
-  },
+
   {
     ingredient: "english cucumber",
     ingredientId: 10111205,
@@ -3843,22 +2658,12 @@ const ingredients = [
     ingredient: "enoki mushrooms",
     ingredientId: 11950,
   },
-  {
-    ingredient: "epazote",
-    ingredientId: 98908,
-  },
-  {
-    ingredient: "erythritol",
-    ingredientId: 98887,
-  },
+
   {
     ingredient: "espresso",
     ingredientId: 14210,
   },
-  {
-    ingredient: "espresso powder",
-    ingredientId: 10014214,
-  },
+
   {
     ingredient: "evaporated milk",
     ingredientId: 1214,
@@ -3867,10 +2672,7 @@ const ingredients = [
     ingredient: "evaporated skim milk",
     ingredientId: 1097,
   },
-  {
-    ingredient: "EVOO",
-    ingredientId: 1034053,
-  },
+
   {
     ingredient: "extra firm tofu",
     ingredientId: 16163,
@@ -3879,10 +2681,7 @@ const ingredients = [
     ingredient: "extra sharp cheddar cheese",
     ingredientId: 1021009,
   },
-  {
-    ingredient: "ez-sweets",
-    ingredientId: 10119868,
-  },
+
   {
     ingredient: "farm raised catfish filet",
     ingredientId: 15234,
@@ -3891,10 +2690,7 @@ const ingredients = [
     ingredient: "farmer cheese",
     ingredientId: 98933,
   },
-  {
-    ingredient: "farro",
-    ingredientId: 10020005,
-  },
+
   {
     ingredient: "fat free chicken broth",
     ingredientId: 6984,
@@ -3955,10 +2751,7 @@ const ingredients = [
     ingredient: "fennel",
     ingredientId: 11957,
   },
-  {
-    ingredient: "fennel pollen",
-    ingredientId: 93808,
-  },
+
   {
     ingredient: "fennel powder",
     ingredientId: 98953,
@@ -3979,10 +2772,7 @@ const ingredients = [
     ingredient: "fettuccine",
     ingredientId: 10020409,
   },
-  {
-    ingredient: "fiddleheads",
-    ingredientId: 11995,
-  },
+
   {
     ingredient: "fig",
     ingredientId: 9089,
@@ -3991,10 +2781,7 @@ const ingredients = [
     ingredient: "fig jam",
     ingredientId: 11519297,
   },
-  {
-    ingredient: "file powder",
-    ingredientId: 11311111,
-  },
+
   {
     ingredient: "filet mignon",
     ingredientId: 10013926,
@@ -4095,14 +2882,7 @@ const ingredients = [
     ingredient: "fontina cheese",
     ingredientId: 1020,
   },
-  {
-    ingredient: "framboise lambic",
-    ingredientId: 93720,
-  },
-  {
-    ingredient: "freekeh",
-    ingredientId: 98869,
-  },
+
   {
     ingredient: "freeze-dried strawberries",
     ingredientId: 98946,
@@ -4287,18 +3067,12 @@ const ingredients = [
     ingredient: "fudge",
     ingredientId: 19100,
   },
-  {
-    ingredient: "full bodied red wine",
-    ingredientId: 14096,
-  },
+
   {
     ingredient: "full-fat cottage cheese",
     ingredientId: 1012,
   },
-  {
-    ingredient: "funfetti cake mix",
-    ingredientId: 98866,
-  },
+
   {
     ingredient: "fuyu persimmon",
     ingredientId: 1009265,
@@ -4371,10 +3145,7 @@ const ingredients = [
     ingredient: "gf sugar cookie mix",
     ingredientId: 99046,
   },
-  {
-    ingredient: "gin",
-    ingredientId: 10514037,
-  },
+
   {
     ingredient: "ginger ale",
     ingredientId: 14136,
@@ -4483,10 +3254,7 @@ const ingredients = [
     ingredient: "golden delicious apple",
     ingredientId: 9501,
   },
-  {
-    ingredient: "golden oreo",
-    ingredientId: 10018210,
-  },
+
   {
     ingredient: "golden raisin",
     ingredientId: 9297,
@@ -4523,10 +3291,7 @@ const ingredients = [
     ingredient: "graham cracker",
     ingredientId: 18617,
   },
-  {
-    ingredient: "graham cracker crumbs",
-    ingredientId: 10018617,
-  },
+
   {
     ingredient: "graham cracker crust",
     ingredientId: 18942,
@@ -4547,10 +3312,7 @@ const ingredients = [
     ingredient: "grana padano",
     ingredientId: 1011033,
   },
-  {
-    ingredient: "grand marnier",
-    ingredientId: 10314534,
-  },
+
   {
     ingredient: "granny smith apple",
     ingredientId: 1089003,
@@ -4647,10 +3409,7 @@ const ingredients = [
     ingredient: "green curry paste",
     ingredientId: 10093605,
   },
-  {
-    ingredient: "green food color",
-    ingredientId: 1441111,
-  },
+
   {
     ingredient: "green gram",
     ingredientId: 16080,
@@ -4703,18 +3462,7 @@ const ingredients = [
     ingredient: "green tomato",
     ingredientId: 11527,
   },
-  {
-    ingredient: "grenadine",
-    ingredientId: 10042040,
-  },
-  {
-    ingredient: "grenadine syrup",
-    ingredientId: 42040,
-  },
-  {
-    ingredient: "grey goose vodka",
-    ingredientId: 14051,
-  },
+
   {
     ingredient: "grill cheese",
     ingredientId: 10093624,
@@ -4772,7 +3520,7 @@ const ingredients = [
     ingredientId: 10219,
   },
   {
-    ingredient: "Ground Sesame Seeds",
+    ingredient: "ground sesame seeds",
     ingredientId: 12698,
   },
   {
@@ -4815,18 +3563,7 @@ const ingredients = [
     ingredient: "guacamole",
     ingredientId: 1009037,
   },
-  {
-    ingredient: "guajillo chile",
-    ingredientId: 10011962,
-  },
-  {
-    ingredient: "guanciale",
-    ingredientId: 93799,
-  },
-  {
-    ingredient: "guar gum",
-    ingredientId: 93765,
-  },
+
   {
     ingredient: "guava",
     ingredientId: 9139,
@@ -4843,10 +3580,7 @@ const ingredients = [
     ingredient: "guinea fowl",
     ingredientId: 5151,
   },
-  {
-    ingredient: "guinness",
-    ingredientId: 93619,
-  },
+
   {
     ingredient: "gum drop",
     ingredientId: 19106,
@@ -4915,22 +3649,12 @@ const ingredients = [
     ingredient: "hazelnut",
     ingredientId: 12120,
   },
-  {
-    ingredient: "hazelnut liqueur",
-    ingredientId: 93755,
-  },
+
   {
     ingredient: "hazelnut oil",
     ingredientId: 4532,
   },
-  {
-    ingredient: "healthy request cream of celery soup",
-    ingredientId: 6987,
-  },
-  {
-    ingredient: "healthy request cream of chicken soup",
-    ingredientId: 6195,
-  },
+
   {
     ingredient: "hearts of palm",
     ingredientId: 43392,
@@ -4955,10 +3679,7 @@ const ingredients = [
     ingredient: "hemp oil",
     ingredientId: 99134,
   },
-  {
-    ingredient: "hemp protein powder",
-    ingredientId: 93601,
-  },
+
   {
     ingredient: "herbes de provence",
     ingredientId: 1012042,
@@ -5059,10 +3780,7 @@ const ingredients = [
     ingredient: "iceberg lettuce",
     ingredientId: 11252,
   },
-  {
-    ingredient: "iceberg lettuce leaves",
-    ingredientId: 10011252,
-  },
+
   {
     ingredient: "iced tea",
     ingredientId: 14475,
@@ -5115,14 +3833,7 @@ const ingredients = [
     ingredient: "instant yeast",
     ingredientId: 10118375,
   },
-  {
-    ingredient: "irish cream",
-    ingredientId: 93764,
-  },
-  {
-    ingredient: "irish moss",
-    ingredientId: 11444,
-  },
+
   {
     ingredient: "irish oats",
     ingredientId: 93695,
@@ -5283,18 +3994,12 @@ const ingredients = [
     ingredient: "kimchi",
     ingredientId: 98860,
   },
-  {
-    ingredient: "king arthur unbleached all-purpose flour",
-    ingredientId: 10020081,
-  },
+
   {
     ingredient: "king oyster mushroom",
     ingredientId: 10011987,
   },
-  {
-    ingredient: "kirsch",
-    ingredientId: 10614037,
-  },
+
   {
     ingredient: "kit kat",
     ingredientId: 19109,
@@ -5327,10 +4032,7 @@ const ingredients = [
     ingredient: "lady finger cookies",
     ingredientId: 18423,
   },
-  {
-    ingredient: "lager",
-    ingredientId: 10114003,
-  },
+
   {
     ingredient: "lamb",
     ingredientId: 10017224,
@@ -5423,14 +4125,7 @@ const ingredients = [
     ingredient: "leek",
     ingredientId: 11246,
   },
-  {
-    ingredient: "leftover fried rice",
-    ingredientId: 93721,
-  },
-  {
-    ingredient: "leftover turkey",
-    ingredientId: 5166,
-  },
+
   {
     ingredient: "leg of lamb",
     ingredientId: 17013,
@@ -5559,10 +4254,7 @@ const ingredients = [
     ingredient: "lightly sweetened whipped cream",
     ingredientId: 93814,
   },
-  {
-    ingredient: "lillet blanc",
-    ingredientId: 93786,
-  },
+
   {
     ingredient: "lima beans",
     ingredientId: 16072,
@@ -5587,10 +4279,7 @@ const ingredients = [
     ingredient: "limeade concentrate",
     ingredientId: 14303,
   },
-  {
-    ingredient: "limoncello",
-    ingredientId: 99021,
-  },
+
   {
     ingredient: "linguine",
     ingredientId: 10720420,
@@ -5599,10 +4288,7 @@ const ingredients = [
     ingredient: "liquid pectin",
     ingredientId: 42063,
   },
-  {
-    ingredient: "liquid smoke",
-    ingredientId: 93627,
-  },
+
   {
     ingredient: "liquid stevia",
     ingredientId: 10811111,
@@ -5763,10 +4449,7 @@ const ingredients = [
     ingredient: "lychee",
     ingredientId: 9164,
   },
-  {
-    ingredient: "mÃ¢che",
-    ingredientId: 11190,
-  },
+
   {
     ingredient: "mac n cheese",
     ingredientId: 32004,
@@ -5875,10 +4558,7 @@ const ingredients = [
     ingredient: "maraschino cherry syrup",
     ingredientId: 99032,
   },
-  {
-    ingredient: "margarita mix",
-    ingredientId: 93815,
-  },
+
   {
     ingredient: "marie biscuits",
     ingredientId: 10018173,
@@ -5955,10 +4635,7 @@ const ingredients = [
     ingredient: "medjool dates",
     ingredientId: 9421,
   },
-  {
-    ingredient: "merlot",
-    ingredientId: 14602,
-  },
+
   {
     ingredient: "mexican cheese",
     ingredientId: 1251,
@@ -5975,18 +4652,12 @@ const ingredients = [
     ingredient: "meyer lemon juice",
     ingredientId: 1009152,
   },
-  {
-    ingredient: "mezcal",
-    ingredientId: 11014037,
-  },
+
   {
     ingredient: "microwave popcorn",
     ingredientId: 25026,
   },
-  {
-    ingredient: "midori melon liqueur",
-    ingredientId: 93781,
-  },
+
   {
     ingredient: "milky way",
     ingredientId: 19135,
@@ -6255,10 +4926,7 @@ const ingredients = [
     ingredient: "okra",
     ingredientId: 11278,
   },
-  {
-    ingredient: "old bay seasoning",
-    ingredientId: 1052034,
-  },
+
   {
     ingredient: "olive oil cooking spray",
     ingredientId: 1004679,
@@ -6303,14 +4971,7 @@ const ingredients = [
     ingredient: "orange extract",
     ingredientId: 12511111,
   },
-  {
-    ingredient: "orange flavor gelatin",
-    ingredientId: 10119172,
-  },
-  {
-    ingredient: "orange food color",
-    ingredientId: 1461111,
-  },
+
   {
     ingredient: "orange juice concentrate",
     ingredientId: 9214,
@@ -6319,10 +4980,7 @@ const ingredients = [
     ingredient: "orange liqueur",
     ingredientId: 10414534,
   },
-  {
-    ingredient: "orange marmalade",
-    ingredientId: 19303,
-  },
+
   {
     ingredient: "orange peel",
     ingredientId: 9216,
@@ -6347,10 +5005,7 @@ const ingredients = [
     ingredient: "orzo",
     ingredientId: 10920420,
   },
-  {
-    ingredient: "ouzo",
-    ingredientId: 10714037,
-  },
+
   {
     ingredient: "ox tail",
     ingredientId: 93778,
@@ -6499,10 +5154,7 @@ const ingredients = [
     ingredient: "peach preserves",
     ingredientId: 11319297,
   },
-  {
-    ingredient: "peach schnapps",
-    ingredientId: 93736,
-  },
+
   {
     ingredient: "peanut",
     ingredientId: 16091,
@@ -6535,10 +5187,7 @@ const ingredients = [
     ingredient: "pear juice",
     ingredientId: 43408,
   },
-  {
-    ingredient: "pear liqueur",
-    ingredientId: 98988,
-  },
+
   {
     ingredient: "pear nectar",
     ingredientId: 9262,
@@ -6607,10 +5256,7 @@ const ingredients = [
     ingredient: "perilla leaves",
     ingredientId: 10311111,
   },
-  {
-    ingredient: "pernod",
-    ingredientId: 14551,
-  },
+
   {
     ingredient: "persian cucumber",
     ingredientId: 10011205,
@@ -6643,10 +5289,7 @@ const ingredients = [
     ingredient: "pickled jalapenos",
     ingredientId: 10011632,
   },
-  {
-    ingredient: "pickling spices",
-    ingredientId: 1012001,
-  },
+
   {
     ingredient: "pico de gallo",
     ingredientId: 27027,
@@ -6715,14 +5358,7 @@ const ingredients = [
     ingredient: "pink lady apple",
     ingredientId: 1099003,
   },
-  {
-    ingredient: "pinot grigio",
-    ingredientId: 14113,
-  },
-  {
-    ingredient: "pinot noir",
-    ingredientId: 14099,
-  },
+
   {
     ingredient: "pinto beans",
     ingredientId: 16043,
@@ -6851,10 +5487,7 @@ const ingredients = [
     ingredient: "pork fillet",
     ingredientId: 10218,
   },
-  {
-    ingredient: "pork links",
-    ingredientId: 1007063,
-  },
+
   {
     ingredient: "pork liver",
     ingredientId: 10110,
@@ -6875,14 +5508,7 @@ const ingredients = [
     ingredient: "pork roast",
     ingredientId: 10010225,
   },
-  {
-    ingredient: "pork sirloin tip roast",
-    ingredientId: 10963,
-  },
-  {
-    ingredient: "port",
-    ingredientId: 10114057,
-  },
+
   {
     ingredient: "portabella mushroom cap",
     ingredientId: 11265,
@@ -6915,14 +5541,7 @@ const ingredients = [
     ingredient: "potato salad",
     ingredientId: 22971,
   },
-  {
-    ingredient: "potato starch",
-    ingredientId: 11413,
-  },
-  {
-    ingredient: "powdered buttermilk",
-    ingredientId: 1094,
-  },
+
   {
     ingredient: "powdered milk",
     ingredientId: 1090,
@@ -7123,10 +5742,7 @@ const ingredients = [
     ingredient: "raspberry extract",
     ingredientId: 14011111,
   },
-  {
-    ingredient: "raspberry flavor gelatin",
-    ingredientId: 10319172,
-  },
+
   {
     ingredient: "raspberry jam",
     ingredientId: 10719297,
@@ -7135,10 +5751,7 @@ const ingredients = [
     ingredient: "raspberry jelly",
     ingredientId: 11419297,
   },
-  {
-    ingredient: "raspberry liqueur",
-    ingredientId: 10114534,
-  },
+
   {
     ingredient: "raspberry sauce",
     ingredientId: 10019137,
@@ -7191,10 +5804,7 @@ const ingredients = [
     ingredient: "red delicious apples",
     ingredientId: 1059003,
   },
-  {
-    ingredient: "red food color",
-    ingredientId: 1451111,
-  },
+
   {
     ingredient: "red grapefruit",
     ingredientId: 1009112,
@@ -7279,14 +5889,7 @@ const ingredients = [
     ingredient: "rhubarb",
     ingredientId: 9307,
   },
-  {
-    ingredient: "rib tip",
-    ingredientId: 98937,
-  },
-  {
-    ingredient: "ribbon fish",
-    ingredientId: 99161,
-  },
+
   {
     ingredient: "rice",
     ingredientId: 20444,
@@ -7299,10 +5902,7 @@ const ingredients = [
     ingredient: "rice cake",
     ingredientId: 19816,
   },
-  {
-    ingredient: "rice chex",
-    ingredientId: 8064,
-  },
+
   {
     ingredient: "rice drink",
     ingredientId: 93761,
@@ -7415,10 +6015,7 @@ const ingredients = [
     ingredient: "royal porgy",
     ingredientId: 15090,
   },
-  {
-    ingredient: "rum extract",
-    ingredientId: 12211111,
-  },
+
   {
     ingredient: "rutabaga",
     ingredientId: 11435,
@@ -7507,10 +6104,7 @@ const ingredients = [
     ingredient: "sausage",
     ingredientId: 1017063,
   },
-  {
-    ingredient: "sausage links",
-    ingredientId: 1037063,
-  },
+
   {
     ingredient: "sauvignon blanc",
     ingredientId: 14134,
@@ -7655,10 +6249,7 @@ const ingredients = [
     ingredient: "silken tofu",
     ingredientId: 16161,
   },
-  {
-    ingredient: "silver tequila",
-    ingredientId: 10814037,
-  },
+
   {
     ingredient: "simple syrup",
     ingredientId: 90480,
@@ -7855,10 +6446,7 @@ const ingredients = [
     ingredient: "spare ribs",
     ingredientId: 10088,
   },
-  {
-    ingredient: "sparkling wine",
-    ingredientId: 43155,
-  },
+
   {
     ingredient: "speck",
     ingredientId: 10110123,
@@ -7983,10 +6571,7 @@ const ingredients = [
     ingredient: "strawberry cake mix",
     ingredientId: 99065,
   },
-  {
-    ingredient: "strawberry flavored gelatin",
-    ingredientId: 10219172,
-  },
+
   {
     ingredient: "strawberry fruit spread",
     ingredientId: 10819297,
@@ -8847,10 +7432,7 @@ const ingredients = [
     ingredient: "yellow curry paste",
     ingredientId: 10193605,
   },
-  {
-    ingredient: "yellow food color",
-    ingredientId: 1431111,
-  },
+
   {
     ingredient: "yellow miso",
     ingredientId: 10216112,
@@ -8875,10 +7457,7 @@ const ingredients = [
     ingredient: "zaatar",
     ingredientId: 1002042,
   },
-  {
-    ingredient: "zinfandel",
-    ingredientId: 14102,
-  },
+
   {
     ingredient: "ziti",
     ingredientId: 11520420,
