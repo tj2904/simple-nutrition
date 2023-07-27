@@ -4,6 +4,7 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
+import Footer from "../components/footer";
 import { Suspense } from "react";
 
 const inter = Inter({
@@ -39,6 +40,7 @@ export default async function RootLayout({
           <AuthStatus />
         </Suspense>
         {children}
+        <Footer />
       </body>
     </html>
   );

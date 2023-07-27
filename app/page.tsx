@@ -3,7 +3,7 @@ import { FaNutritionix } from "react-icons/fa";
 
 export default function Home() {
   return (
-    <div className="flex h-screen bg-slate-700">
+    <div className="flex h-full bg-slate-700">
       <div className="w-screen h-screen flex flex-col justify-center items-center">
         <svg
           className="w-20 lg:w-40 fill-current"
