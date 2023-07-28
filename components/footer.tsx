@@ -49,13 +49,21 @@ export default function Footer() {
               </a>
             ))}
           </div>
-          <p className="mt-8 text-xs leading-5 text-gray-400 md:order-1 md:mt-0">
+          <p className="mt-8 text-xs leading-5 text-gray-500 md:order-1 md:mt-0">
             “Diet Plan” icon by Sou from{" "}
-            <Link href="https://thenounproject.com/browse/icons/term/diet-plan">
+            <Link
+              href="https://thenounproject.com/browse/icons/term/diet-plan"
+              className="text-gray-500 hover:text-gray-400"
+            >
               Noun Project
             </Link>{" "}
             CC BY 3.0 | Data from{" "}
-            <Link href="https://spoonacular.com/food-api">Spoonacular</Link>
+            <Link
+              href="https://spoonacular.com/food-api "
+              className=" hover:text-gray-400"
+            >
+              Spoonacular
+            </Link>
           </p>
         </div>
       </div>
