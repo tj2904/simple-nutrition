@@ -1,3 +1,4 @@
+"use client";
 import React, { useState, ChangeEvent } from "react";
 import { Combobox } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
@@ -25,7 +26,6 @@ export default function ComboBox() {
       )
         .then((response) => response.json())
         .then((data: ApiResponse) => {
-          // Update the data type to ApiResponse
           data.nutrition.nutrients.sort((a, b) => {
             const nameA = a.name.toLowerCase();
             const nameB = b.name.toLowerCase();
