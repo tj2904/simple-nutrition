@@ -3,7 +3,7 @@ import { Combobox } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
 import NutrientListing from "./NutrientListing";
 import ingredients from "../app/data/ingredients";
-import { Ingredient } from "../types";
+import { Ingredient, ApiResponse } from "../types";
 
 const foods = ingredients;
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
@@ -24,8 +24,9 @@ export default function ComboBox() {
         `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}`
       )
         .then((response) => response.json())
-        .then((data) => {
-          data.nutrition.nutrients.sort((a: any, b: any) => {
+        .then((data: ApiResponse) => {
+          // Update the data type to ApiResponse
+          data.nutrition.nutrients.sort((a, b) => {
             const nameA = a.name.toLowerCase();
             const nameB = b.name.toLowerCase();
             if (nameA < nameB) return -1;
