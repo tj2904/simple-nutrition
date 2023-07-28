@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     description,
   },
   metadataBase: new URL("https://simple-nutrition.vercel.app"),
-  themeColor: "#FFF",
+  themeColor: "#334155",
 };
 
 export default async function RootLayout({
