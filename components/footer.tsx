@@ -54,7 +54,8 @@ export default function Footer() {
             <Link href="https://thenounproject.com/browse/icons/term/diet-plan">
               Noun Project
             </Link>{" "}
-            CC BY 3.0
+            CC BY 3.0 | Data from{" "}
+            <Link href="https://spoonacular.com/food-api">Spoonacular</Link>
           </p>
         </div>
       </div>
