@@ -71,7 +71,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           placeholder="panic@thedis.co"
           autoComplete="email"
           required
-          className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+          className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 text-slate-700 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
       </div>
       <div>
@@ -86,7 +86,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
           name="password"
           type="password"
           required
-          className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
+          className="mt-1 block w-full appearance-none rounded-md border border-gray-300 px-3 py-2 placeholder-gray-400 text-slate-700 shadow-sm focus:border-black focus:outline-none focus:ring-black sm:text-sm"
         />
       </div>
       <button
@@ -94,7 +94,7 @@ export default function Form({ type }: { type: "login" | "register" }) {
         className={`${
           loading
             ? "cursor-not-allowed border-gray-200 bg-gray-100"
-            : "border-black bg-black text-white hover:bg-white hover:text-black"
+            : "border-slate-700 bg-slate-700 text-white hover:bg-white hover:text-slate-700"
         } flex h-10 w-full items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
       >
         {loading ? (
@@ -106,15 +106,15 @@ export default function Form({ type }: { type: "login" | "register" }) {
       {type === "login" ? (
         <p className="text-center text-sm text-gray-600">
           Don&apos;t have an account?{" "}
-          <Link href="/register" className="font-semibold text-gray-800">
-            Sign up
+          <Link href="/register" className="font-semibold text-slate-700">
+            Register
           </Link>{" "}
           for free.
         </p>
       ) : (
         <p className="text-center text-sm text-gray-600">
           Already have an account?{" "}
-          <Link href="/login" className="font-semibold text-gray-800">
+          <Link href="/login" className="font-semibold text-slate-700">
             Sign in
           </Link>{" "}
           instead.

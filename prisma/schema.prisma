@@ -3,18 +3,62 @@
 
 generator client {
   provider = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url = env("POSTGRES_PRISMA_URL") // uses connection pooling
-  directUrl = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
+  provider          = "postgresql"
+  url               = env("POSTGRES_PRISMA_URL") // uses connection pooling
+  directUrl         = env("POSTGRES_URL_NON_POOLING") // uses a direct connection
   shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING") // used for migrations
 }
 
 model User {
-  id        Int     @id @default(autoincrement())
-  email     String  @unique
-  password  String
+  id       Int    @id @default(autoincrement())
+  email    String @unique
+  password String
+  foods    Food[]
+}
+
+model Food {
+  id            Int      @id @default(autoincrement())
+  date          DateTime @default(now())
+  name          String
+  apiId         Int
+  user          User     @relation(fields: [userId], references: [id])
+  userId        Int // relation scalar field (used in the `@relation` attribute above)
+  vitaminA      Int
+  VitaminB1     Int
+  vitaminB2     Int
+  vitaminB3     Int
+  viatminB5     Int
+  vitaminB6     Int
+  viatminB12    Int
+  vitaminC      Int
+  vitaminD      Int
+  vitaminE      Int
+  vitaminK      Int
+  Calcium       Int
+  Carbohydrates Int
+  Cholestrol    Int
+  Choline       Int
+  Fiber         Int
+  FolicAcid     Int
+  Flouride      Int
+  Folate        Int
+  Fat           Int
+  SaturatedFat  Int
+  MonoUnsatFat  Int
+  PolyUnsatFat  Int
+  Iron          Int
+  Lycopene      Int
+  Maganese      Int
+  Magnesium     Int
+  Phosphorus    Int
+  Potassium     Int
+  Protein       Int
+  Selenium      Int
+  Sodium        Int
+  Sugar         Int
+  TransFat      Int
+  Zinc          Int
 }

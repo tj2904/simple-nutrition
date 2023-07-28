@@ -1,9 +1,9 @@
-import Link from "next/link";
+import ComboBox from "../../components/combobox";
 
-export default function Home() {
+export default function SearchIndex() {
   return (
-    <div className="flex h-full bg-slate-700">
-      <div className="w-screen h-screen flex flex-col justify-center items-center">
+    <div className=" pt-14 min-h-full mt-14">
+      <div className="w-screen flex flex-col justify-center items-center">
         <svg
           className="w-20 lg:w-40 fill-current"
           xmlns="http://www.w3.org/2000/svg"
@@ -17,25 +17,13 @@ export default function Home() {
           <path d="M189.77,240,170.1,252.83V242.4a8,8,0,0,0-8-8H98a8,8,0,0,0-8,8v65.92a8,8,0,0,0,8,8H162.1a8,8,0,0,0,8-8V272l28.43-18.6A8,8,0,0,0,189.77,240ZM154.1,263.3l-15.46,10.12-8.85-9.8a8,8,0,0,0-11.88,10.72l13.44,14.89a8,8,0,0,0,10.32,1.33l12.43-8.13v17.89H106V250.4H154.1Z" />
           <path d="M162.1,351.35H98a8,8,0,0,0-8,8v65.92a8,8,0,0,0,8,8H162.1a8,8,0,0,0,8-8V359.35A8,8,0,0,0,162.1,351.35Zm-8,65.92H106V367.35H154.1Z" />
         </svg>
-        <div className="text-center max-w-screen-sm mb-10">
-          <h1 className="text-stone-200 font-bold text-2xl">
-            Simple Nutrition
-          </h1>
-          <p className="text-stone-400 mt-5">
-            Keep track of your daily nutrition intake.
+
+        <div className="text-center max-w-screen-lg mb-10">
+          <h1 className="font-bold text-2xl">Nutritional Content Search</h1>
+          <p className="text-stone-400 m-5">
+            Search for an ingredient and get a list of the nutrients it contains{" "}
           </p>
-        </div>
-        <div className="flex space-x-3">
-          <Link href="/login">
-            <button className="w-36 border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700  h-10  items-center justify-center rounded-md border text-sm transition-all focus:outline-none">
-              Sign In
-            </button>
-          </Link>
-          <Link href="/register">
-            <button className="w-36 border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700  h-10  items-center justify-center rounded-md border text-sm transition-all focus:outline-none">
-              Register
-            </button>
-          </Link>
+          <ComboBox />
         </div>
       </div>
     </div>
