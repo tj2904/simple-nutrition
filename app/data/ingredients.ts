@@ -1,4 +1,6 @@
-const ingredients = [
+import { Ingredient } from "../../types";
+
+const ingredients: Ingredient[] = [
   {
     ingredient: "0% fat greek yogurt",
     ingredientId: 1001256,
