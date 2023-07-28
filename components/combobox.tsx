@@ -1,41 +1,44 @@
 "use client";
-import { useState } from "react";
+import React, { useState, ChangeEvent } from "react";
 import { Combobox } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
 import NutrientListing from "./NutrientListing";
 import ingredients from "../app/data/ingredients";
+import { Ingredient, ApiResponse } from "../types";
 
 const foods = ingredients;
-let ApiKey = process.env.NEXT_PUBLIC_API_KEY;
+let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 
-function classNames(...classes) {
+function classNames(...classes: (string | boolean)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
 export default function ComboBox() {
-  const [query, setQuery] = useState("");
-  const [selectedfood, setSelectedfood] = useState(null);
-  const [apiResult, setApiResult] = useState(null);
+  const [query, setQuery] = useState<string>("");
+  const [selectedfood, setSelectedfood] = useState<Ingredient | null>(null);
+  const [apiResult, setApiResult] = useState<any | null>(null);
 
   const handleApiCall = async () => {
-    const foodId = selectedfood.ingredientId;
-    fetch(
-      `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}`
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        data.nutrition.nutrients.sort((a, b) => {
-          const nameA = a.name.toLowerCase();
-          const nameB = b.name.toLowerCase();
-          if (nameA < nameB) return -1;
-          if (nameA > nameB) return 1;
-          return 0;
+    if (selectedfood) {
+      const foodId = selectedfood.ingredientId;
+      fetch(
+        `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}`
+      )
+        .then((response) => response.json())
+        .then((data: ApiResponse) => {
+          data.nutrition.nutrients.sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+          });
+          setApiResult(data);
+        })
+        .catch((error) => {
+          console.log(error);
         });
-        setApiResult(data);
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+    }
   };
 
   const filteredfoods =
@@ -45,6 +48,10 @@ export default function ComboBox() {
           return food.ingredient.toLowerCase().includes(query.toLowerCase());
         });
 
+  const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
+    setQuery(event.target.value);
+  };
+
   return (
     <>
       <Combobox as="div" value={selectedfood} onChange={setSelectedfood}>
@@ -52,8 +59,8 @@ export default function ComboBox() {
         <div className="relative mt-2 w-72 mx-auto">
           <Combobox.Input
             className="w-72 rounded-md border-0 bg-stone-300 py-1.5 pl-3 pr-10 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
-            onChange={(event) => setQuery(event.target.value)}
-            displayValue={(food) => food?.ingredient}
+            onChange={handleInputChange}
+            displayValue={(food: Ingredient) => food?.ingredient}
           />
           <Combobox.Button className="absolute inset-y-0 right-0 flex items-center rounded-r-md px-2 focus:outline-none">
             <HiChevronUpDown
