@@ -4,7 +4,7 @@ export interface Ingredient {
 }
 // types.d.ts
 
-interface Nutrient {
+export interface Nutrient {
   name: string;
   amount: number;
   unit: string;

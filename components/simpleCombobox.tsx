@@ -2,38 +2,9 @@
 import React, { useState, ChangeEvent } from "react";
 import { Combobox } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
-import NutrientListingByValue from "./NutrientListingByValue";
+import NutrientListing from "./NutrientListing";
 import ingredients from "../app/data/ingredients";
-import { Ingredient, ApiResponse, Nutrient } from "../types";
-
-interface ObjectWithUnit {
-  value: number;
-  unit: string;
-}
-
-const customUnitOrder: string[] = ["kcal", "IU", "µg", "mg", "g", "kg"];
-
-function compareObjects(a: Nutrient, b: Nutrient): number {
-  const unitA = a.unit.toLowerCase();
-  const unitB = b.unit.toLowerCase();
-  const valueA = a.amount;
-  const valueB = b.amount;
-
-  const indexA = customUnitOrder.indexOf(unitA);
-  const indexB = customUnitOrder.indexOf(unitB);
-
-  if (indexA === indexB) {
-    return valueB - valueA;
-  }
-
-  return indexB - indexA;
-}
-
-function moveZerosToEnd(arr: Nutrient[]): Nutrient[] {
-  const zeros = arr.filter((item) => item.amount === 0);
-  const nonZeros = arr.filter((item) => item.amount !== 0);
-  return [...nonZeros, ...zeros];
-}
+import { Ingredient, ApiResponse } from "../types";
 
 const foods = ingredients;
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
@@ -42,7 +13,7 @@ function classNames(...classes: (string | boolean)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function ComboBox() {
+export default function SimpleComboBox() {
   const [query, setQuery] = useState<string>("");
   const [selectedfood, setSelectedfood] = useState<Ingredient | null>(null);
   const [apiResult, setApiResult] = useState<any | null>(null);
@@ -51,14 +22,18 @@ export default function ComboBox() {
     if (selectedfood) {
       const foodId = selectedfood.ingredientId;
       fetch(
-        `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}&amount=100&unit=grams`
+        `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}`
       )
         .then((response) => response.json())
         .then((data: ApiResponse) => {
-          data.nutrition.nutrients.sort(compareObjects);
-          const sortedNutrients = moveZerosToEnd(data.nutrition.nutrients);
-          setApiResult(sortedNutrients);
-          console.log(sortedNutrients);
+          data.nutrition.nutrients.sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            if (nameA < nameB) return -1;
+            if (nameA > nameB) return 1;
+            return 0;
+          });
+          setApiResult(data);
         })
         .catch((error) => {
           console.log(error);
@@ -76,6 +51,7 @@ export default function ComboBox() {
   const handleInputChange = (event: ChangeEvent<HTMLInputElement>) => {
     setQuery(event.target.value);
   };
+
   return (
     <>
       <Combobox as="div" value={selectedfood} onChange={setSelectedfood}>
@@ -141,7 +117,9 @@ export default function ComboBox() {
       >
         Show nutrients for the selected ingredient
       </button>
-      {apiResult && <NutrientListingByValue nutrients={apiResult} />}
+      {apiResult && (
+        <NutrientListing nutrients={apiResult.nutrition.nutrients} />
+      )}
     </>
   );
 }
