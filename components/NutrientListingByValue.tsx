@@ -1,4 +1,4 @@
-import { GoCheckCircleFill, GoXCircleFill } from "react-icons/go";
+import { GoXCircleFill } from "react-icons/go";
 
 export default function NutritionalListingByValue(nut: any) {
   const nutrients = nut.nutrients;

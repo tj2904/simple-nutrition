@@ -58,7 +58,6 @@ export default function ComboBox() {
           data.nutrition.nutrients.sort(compareObjects);
           const sortedNutrients = moveZerosToEnd(data.nutrition.nutrients);
           setApiResult(sortedNutrients);
-          console.log(sortedNutrients);
         })
         .catch((error) => {
           console.log(error);
