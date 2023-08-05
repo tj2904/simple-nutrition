@@ -1,9 +1,6 @@
 import { GoXCircleFill } from "react-icons/go";
 
 export default function NutritionalListingByValue(nut: any, food: any) {
-  console.log("food in listing component", food);
-  const title = food;
-  console.log("title", title);
   const nutrients = nut.nutrients;
   const badNutrients: string[] = [
     "Sugar",
@@ -57,7 +54,8 @@ export default function NutritionalListingByValue(nut: any, food: any) {
                   <br />
                   <span className="text-xs font-normal text-slate-600 ">
                     {" "}
-                    {nutrient.amount} {nutrient.unit} / 100g
+                    {Math.round(nutrient.amount * 100) / 100} {nutrient.unit} /
+                    100g
                   </span>
                 </div>
               </div>

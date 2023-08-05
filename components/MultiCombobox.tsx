@@ -34,7 +34,7 @@ function combineNutrientArrays(dataArray) {
   return dataArray.reduce((accumulator, currentArray) => {
     currentArray.forEach((currentNutrient) => {
       const existingNutrient = accumulator.find(
-        (nutrient) => nutrient.name === currentNutrient.name
+        (nutrient: Nutrient) => nutrient.name === currentNutrient.name
       );
 
       if (existingNutrient) {
@@ -62,8 +62,6 @@ export default function MultiComboBox() {
   const [selectedfood, setSelectedfood] = useState<Ingredient[] | null>([]);
   const [apiResult, setApiResult] = useState<any | null>(null);
 
-  console.log("selectedfood", selectedfood);
-
   const handleApiCall = async () => {
     if (selectedfood && Array.isArray(selectedfood)) {
       const fetchPromises = selectedfood.map((food) => {
@@ -85,10 +83,11 @@ export default function MultiComboBox() {
 
       Promise.all(fetchPromises)
         .then((results) => {
-          console.log("results", results);
           // 'results' will be an array containing the processed data of each item in 'selectedfood'
           const combinedArray = combineNutrientArrays(results);
-          setApiResult(combinedArray);
+          let sortedArray = combinedArray.sort(compareObjects);
+          sortedArray = moveZerosToEnd(sortedArray);
+          setApiResult(sortedArray);
         })
         .catch((error) => {
           console.log(error);
@@ -181,7 +180,7 @@ export default function MultiComboBox() {
         className="m-4 w-72 border-stone-400 bg-slate-700 text-white hover:bg-stone-300 hover:text-slate-700  h-10  items-center justify-center rounded-md border text-sm transition-all focus:outline-none"
         onClick={handleApiCall}
       >
-        Show nutrients for the selected ingredient
+        Show nutrients for the selected ingredients
       </button>
       {apiResult && <MultiNutrientListing nutrients={apiResult} />}
     </>

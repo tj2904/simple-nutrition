@@ -21,7 +21,8 @@ export default function SearchIndex() {
         <div className="text-center max-w-screen-lg mb-10">
           <h1 className="font-bold text-2xl">Nutritional Content Search</h1>
           <p className="text-stone-400 m-5">
-            Search for an ingredient and get a list of the nutrients it contains{" "}
+            Search for multiple ingredients and get a combined list of the
+            nutrients they contain.
           </p>
           <MultiComboBox />
         </div>
