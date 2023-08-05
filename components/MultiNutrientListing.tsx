@@ -46,7 +46,7 @@ export default function NutritionalListingByValue(nut: any, food: any) {
                   {index + 1}
                 </div>
               ) : (
-                <div className="bg-blue flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white">
+                <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white">
                   <GoXCircleFill className="h-5 w-5" />
                 </div>
               )}
