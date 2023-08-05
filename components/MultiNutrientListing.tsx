@@ -37,7 +37,7 @@ export default function NutritionalListingByValue(nut: any, food: any) {
           } else if (containsWord && nutrient.amount > 0) {
             itemClassName = "bg-red-500 col-span-1 flex rounded-md shadow-sm";
           } else {
-            itemClassName = "bg-blue-400 col-span-1 flex rounded-md shadow-sm";
+            itemClassName = "bg-blue-700 col-span-1 flex rounded-md shadow-sm";
           }
           return (
             <li key={nutrient.name} className={itemClassName}>
@@ -46,7 +46,7 @@ export default function NutritionalListingByValue(nut: any, food: any) {
                   {index + 1}
                 </div>
               ) : (
-                <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white">
+                <div className="bg-blue flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white">
                   <GoXCircleFill className="h-5 w-5" />
                 </div>
               )}
