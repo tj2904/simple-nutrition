@@ -67,7 +67,7 @@ export default function MultiComboBox() {
       const fetchPromises = selectedfood.map((food) => {
         const foodId = food.ingredientId;
         return fetch(
-          `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}&amount=100&unit=grams`
+          `https://api.spoonacular.com/food/ingredients/${foodId}/information?apiKey=${ApiKey}&amount=100&unit=grams`
         )
           .then((response) => response.json())
           .then((data) => {
