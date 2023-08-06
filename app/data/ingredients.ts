@@ -970,6 +970,10 @@ const ingredients: Ingredient[] = [
     ingredientId: 11306,
   },
   {
+    ingredient: "canned peas and carrots",
+    ingredientId: 11318,
+  },
+  {
     ingredient: "canned pineapple",
     ingredientId: 9354,
   },
@@ -5268,6 +5272,10 @@ const ingredients: Ingredient[] = [
     ingredientId: 9265,
   },
   {
+    ingredient: "petite peas",
+    ingredientId: 11304,
+  },
+  {
     ingredient: "petite tomatoes",
     ingredientId: 10311693,
   },
@@ -6633,6 +6641,10 @@ const ingredients: Ingredient[] = [
   {
     ingredient: "sugar-free raspberry jello mix",
     ingredientId: 10319175,
+  },
+  {
+    ingredient: "sugar snap peas",
+    ingredientId: 10011300,
   },
   {
     ingredient: "sukrin",
