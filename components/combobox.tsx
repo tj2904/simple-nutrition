@@ -51,7 +51,7 @@ export default function ComboBox() {
     if (selectedfood) {
       const foodId = selectedfood.ingredientId;
       fetch(
-        `https://api.spoonacular.com/food/ingredients/${foodId}/information?amount=1&apiKey=${ApiKey}&amount=100&unit=grams`
+        `https://api.spoonacular.com/food/ingredients/${foodId}/information?apiKey=${ApiKey}&amount=100&unit=grams`
       )
         .then((response) => response.json())
         .then((data: ApiResponse) => {
