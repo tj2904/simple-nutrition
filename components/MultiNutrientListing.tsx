@@ -1,6 +1,6 @@
 import { GoXCircleFill } from "react-icons/go";
 
-export default function NutritionalListingByValue(nut: any, food: any) {
+export default function NutritionalListingByValue(nut: any) {
   const nutrients = nut.nutrients;
   const badNutrients: string[] = [
     "Sugar",
@@ -37,32 +37,36 @@ export default function NutritionalListingByValue(nut: any, food: any) {
             itemClassName = "bg-blue-700 col-span-1 flex rounded-md shadow-sm";
           }
           return (
-            <li key={nutrient.name} className={itemClassName}>
-              {nutrient.amount > 0 ? (
-                <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-bold text-white">
-                  {index + 1}
-                </div>
-              ) : (
-                <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white">
-                  <GoXCircleFill className="h-5 w-5" />
-                </div>
-              )}
+            <>
+              <li key={nutrient.name} className={itemClassName}>
+                {nutrient.amount > 0 ? (
+                  <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-bold text-white">
+                    {index + 1}
+                  </div>
+                ) : (
+                  <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-medium text-white">
+                    <GoXCircleFill className="h-5 w-5" />
+                  </div>
+                )}
 
-              <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-stone-300">
-                <div className="flex-1 px-4 py-2 text-sm font-semibold text-slate-700 divide-y divide-stone-400">
-                  {nutrient.name}
-                  <br />
-                  <span className="text-xs font-normal text-slate-600 ">
-                    {" "}
-                    {Math.round(nutrient.amount * 100) / 100} {nutrient.unit} /
-                    100g
-                  </span>
+                <div className="flex flex-1 items-center justify-between truncate rounded-r-md border-b border-r border-t border-gray-200 bg-stone-300">
+                  <div className="flex-1 px-2 py-2 text-sm font-semibold text-slate-700 divide-y divide-stone-400">
+                    {nutrient.name}
+                    <br />
+                    <span className="text-xs font-normal text-slate-600 ">
+                      {Math.round(nutrient.amount * 100) / 100} {nutrient.unit}{" "}
+                      *
+                    </span>
+                  </div>
                 </div>
-              </div>
-            </li>
+              </li>
+            </>
           );
         })}
       </ul>
+      <p className="text-sm italic pt-2 text-stone-400">
+        * per 100 grams of each selected ingredient.
+      </p>
     </div>
   );
 }
