@@ -1,7 +1,10 @@
 import { GoXCircleFill } from "react-icons/go";
+import { Nutrient } from "types";
 
-export default function NutritionalListingByValue(nut: any) {
-  const nutrients = nut.nutrients;
+export default function NutritionalListingByValue(props: any) {
+  const nutrients = props.nutrients;
+  const images = props.images;
+
   const badNutrients: string[] = [
     "Sugar",
     "Fat",
@@ -19,12 +22,21 @@ export default function NutritionalListingByValue(nut: any) {
       <h2 className="text-xl font-semibold text-left text-gray-500">
         Combined nutrients, sorted by highest amount first
       </h2>
-
+      <div className="isolate flex -space-x-1 overflow-hidden mt-1">
+        {images.reverse().map((i: any, index: number) => (
+          <img
+            className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-700 bg-white"
+            src={`https://spoonacular.com/cdn/ingredients_100x100/${i}`}
+            alt={`Stock photo - ${i}`}
+            key={`${i}-${index}`}
+          />
+        ))}
+      </div>
       <ul
         role="list"
         className="mt-3 grid grid-cols-1 gap-5 sm:grid-cols-2 sm:gap-6 lg:grid-cols-4"
       >
-        {nutrients.map((nutrient: any, index: number) => {
+        {nutrients.map((nutrient: Nutrient, index: number) => {
           const containsWord: Boolean = badNutrients.some((word) =>
             nutrient.name.includes(word)
           );
