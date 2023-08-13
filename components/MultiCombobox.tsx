@@ -111,7 +111,11 @@ export default function MultiComboBox() {
       <div>
         Selected ingredients:
         <div className="capitalize pb-4">
-          {selectedfood?.map((f) => f.ingredient).join(", ")}
+          {selectedfood?.map((f) => (
+            <span className="mt-2 inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 mx-1 text-xs font-medium text-stone-200">
+              {f.ingredient}
+            </span>
+          ))}
         </div>
       </div>
       <Combobox
