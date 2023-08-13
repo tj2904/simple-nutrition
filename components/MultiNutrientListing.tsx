@@ -23,7 +23,7 @@ export default function NutritionalListingByValue(props: any) {
         Combined nutrients, sorted by highest amount first
       </h2>
       <div className="isolate flex -space-x-1 overflow-hidden mt-1">
-        {images.map((i: any, index: number) => (
+        {images.reverse().map((i: any, index: number) => (
           <img
             className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-700 bg-white"
             src={`https://spoonacular.com/cdn/ingredients_100x100/${i}`}
