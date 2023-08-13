@@ -6,7 +6,10 @@ import MultiNutrientListing from "./MultiNutrientListing";
 import ingredients from "../app/data/ingredients";
 import { Ingredient, ApiResponse, Nutrient } from "../types";
 
+let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 const customUnitOrder: string[] = ["kcal", "IU", "µg", "mg", "g", "kg"];
+const foods = ingredients;
+const images: string[] = [];
 
 function compareObjects(a: Nutrient, b: Nutrient): number {
   const unitA = a.unit.toLowerCase();
@@ -50,9 +53,6 @@ function combineNutrientArrays(dataArray) {
   }, []);
 }
 
-const foods = ingredients;
-let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
-
 function classNames(...classes: (string | boolean)[]) {
   return classes.filter(Boolean).join(" ");
 }
@@ -64,6 +64,8 @@ export default function MultiComboBox() {
 
   const handleApiCall = async () => {
     if (selectedfood && Array.isArray(selectedfood)) {
+      // empty array before pushing new image data
+      images.length = 0;
       const fetchPromises = selectedfood.map((food) => {
         const foodId = food.ingredientId;
         return fetch(
@@ -71,6 +73,7 @@ export default function MultiComboBox() {
         )
           .then((response) => response.json())
           .then((data) => {
+            images.push(data.image);
             data.nutrition.nutrients.sort(compareObjects);
             const sortedNutrients = moveZerosToEnd(data.nutrition.nutrients);
             return sortedNutrients;
@@ -112,7 +115,10 @@ export default function MultiComboBox() {
         Selected ingredients:
         <div className="capitalize pb-4">
           {selectedfood?.map((f) => (
-            <span className="mt-2 inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 mx-1 text-xs font-medium text-stone-200">
+            <span
+              key={f.ingredient}
+              className="mt-2 inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 mx-1 text-xs font-medium text-stone-200"
+            >
               {f.ingredient}
             </span>
           ))}
@@ -186,7 +192,9 @@ export default function MultiComboBox() {
       >
         Show nutrients for the selected ingredients
       </button>
-      {apiResult && <MultiNutrientListing nutrients={apiResult} />}
+      {apiResult && (
+        <MultiNutrientListing nutrients={apiResult} images={images} />
+      )}
     </>
   );
 }
