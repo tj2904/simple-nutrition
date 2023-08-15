@@ -14,7 +14,6 @@ export default function SearchIndex() {
     setApiResult(result);
     setImages(fetchedImages);
   };
-  console.log("page level selectedFood", selectedFood);
   return (
     <div className=" pt-14 min-h-full mt-14">
       <div className="w-screen flex flex-col justify-center items-center">
