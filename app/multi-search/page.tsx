@@ -1,6 +1,20 @@
+"use client";
 import MultiComboBox from "@/components/MultiCombobox";
+import MultiNutrientListing from "@/components/MultiNutrientListing";
+import { useState } from "react";
+import { Ingredient, ApiResponse, Nutrient } from "../../types";
+import SelectedIngredientListing from "@/components/selectedIngredientListing";
 
 export default function SearchIndex() {
+  const [selectedFood, setSelectedFood] = useState<Ingredient[]>([]);
+  const [apiResult, setApiResult] = useState<Nutrient[] | null>(null);
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleApiResult = (result: Nutrient[], fetchedImages: string[]) => {
+    setApiResult(result);
+    setImages(fetchedImages);
+  };
+  console.log("page level selectedFood", selectedFood);
   return (
     <div className=" pt-14 min-h-full mt-14">
       <div className="w-screen flex flex-col justify-center items-center">
@@ -24,7 +38,18 @@ export default function SearchIndex() {
             Search for multiple ingredients and get a combined list of the
             nutrients they contain.
           </p>
-          <MultiComboBox />
+          {selectedFood.length > 0 && (
+            <SelectedIngredientListing selectedFood={selectedFood} />
+          )}
+          <MultiComboBox
+            selectedFood={selectedFood}
+            setSelectedFood={setSelectedFood}
+            handleApiResult={handleApiResult}
+            setApiResult={setApiResult} // Pass setApiResult function
+          />
+          {apiResult && (
+            <MultiNutrientListing nutrients={apiResult} images={images} />
+          )}
         </div>
       </div>
     </div>
