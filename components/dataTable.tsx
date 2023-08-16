@@ -26,14 +26,14 @@ const DataTable: React.FC = () => {
 
   const handleRowClick = (selectedDish: Dish) => {
     // Here you can access the selected dish and its ingredients
-    console.log("Selected Dish:", selectedDish);
+    console.log("row clicked");
   };
 
   return (
     <div className="mx-auto max-w-7xl ">
       <div className="py-10">
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="sm:flex sm:items-center">
+          <div className="sm:flex  sm:items-center">
             <div className="sm:flex-auto">
               <h1 className="text-xl font-semibold leading-6 text-white">
                 Dishes
@@ -71,11 +71,11 @@ const DataTable: React.FC = () => {
                         <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
                           {dish.name}
                         </td>
-                        <td className="whitespace-nowrap px-3 py-4 text-sm">
+                        <td className="px-3 py-4 text-sm">
                           {dish.ingredients.map((ingredient) => (
                             <span
-                              key={ingredient.ingredientId}
-                              className="whitespace-normal inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 mx-1 text-xs font-medium text-stone-200"
+                              key={`${ingredient.ingredientId}-${ingredient.name}`}
+                              className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-medium text-stone-200"
                             >
                               {ingredient.name}
                             </span>

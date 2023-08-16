@@ -3,7 +3,6 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request) {
-  console.log("start of api route");
   const dishesWithIngredients = await prisma.dish.findMany({
     include: {
       ingredients: {
@@ -14,6 +13,5 @@ export async function GET(req: Request) {
       },
     },
   });
-  console.log("api route: ", dishesWithIngredients);
   return NextResponse.json(dishesWithIngredients);
 }
