@@ -4,6 +4,7 @@ import MultiNutrientListing from "@/components/MultiNutrientListing";
 import { useState } from "react";
 import { Ingredient, ApiResponse, Nutrient } from "../../types";
 import SelectedIngredientListing from "@/components/selectedIngredientListing";
+import SaveAsDish from "@/components/SaveAsDish";
 
 export default function SearchIndex() {
   const [selectedFood, setSelectedFood] = useState<Ingredient[]>([]);
@@ -14,6 +15,7 @@ export default function SearchIndex() {
     setApiResult(result);
     setImages(fetchedImages);
   };
+  console.log("page level selectedFood", selectedFood);
   return (
     <div className=" pt-14 min-h-full mt-14">
       <div className="w-screen flex flex-col justify-center items-center">
@@ -49,6 +51,7 @@ export default function SearchIndex() {
           {apiResult && (
             <MultiNutrientListing nutrients={apiResult} images={images} />
           )}
+          {apiResult && <SaveAsDish selectedFood={selectedFood} />}
         </div>
       </div>
     </div>

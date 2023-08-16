@@ -75,3 +75,21 @@ model Ingredient {
   dishId       Int
   Dish         Dish   @relation(fields: [dishId], references: [id])
 }
+
+model Dish {
+  id          Int          @id @default(autoincrement())
+  name        String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  ingredients Ingredient[]
+}
+
+// Example column: name: "Pasta Carbonara"
+
+model Ingredient {
+  id           Int    @id @default(autoincrement())
+  ingredientId Int // An ID to represent the ingredient (you can use the same ID from your API)
+  name         String
+  dish         Dish   @relation(fields: [dishId], references: [id])
+  dishId       Int
+}

@@ -10,6 +10,7 @@ import {
   moveZerosToEnd,
   combineNutrientArrays,
 } from "../utils/NutrientHandling";
+import { toast } from "react-hot-toast";
 
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 const foods = ingredients;
@@ -49,6 +50,7 @@ export default function MultiComboBox({
           })
           .catch((error) => {
             console.log(error);
+            toast.error("Error fetching nutrients");
             return null;
           });
       });
@@ -84,6 +86,7 @@ export default function MultiComboBox({
         as="div"
         value={selectedFood}
         onChange={setSelectedFood}
+        //@ts-ignore
         multiple
       >
         <Combobox.Label className="block text-sm font-medium leading-6 text-stone-300"></Combobox.Label>
