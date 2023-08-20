@@ -10,15 +10,13 @@ interface Dish {
   }[];
 
 const DataTable: React.FC = () => {
-const revalidationTime: number = 600; // 10 minutes
+
   const [dishes, setDishes] = useState<Dish[]>([]);
 
   useEffect(() => {
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-next: { revalidate: revalidationTime},
-
       }).then(async (res) => {
         setDishes(await res.json());
       });
