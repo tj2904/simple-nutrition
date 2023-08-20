@@ -1,3 +1,4 @@
+"use client"
 import DataTable from "@/components/dataTable";
 
 export default function Dishes() {
