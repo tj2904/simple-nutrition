@@ -9,7 +9,7 @@ interface Dish {
     name: string;
   };
 
-const DataTable: React.FC = () => {
+export default function DataTable: React.FC = () => {
 
   const [dishes, setDishes] = useState<Dish[]>([]);
 
@@ -94,4 +94,3 @@ const DataTable: React.FC = () => {
   );
 };
 
-export default DataTable;
