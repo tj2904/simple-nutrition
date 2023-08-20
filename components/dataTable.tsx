@@ -9,9 +9,8 @@ interface Dish {
     name: string;
   }[];
 
-const revalidationTime: number = 600; // 10 minutes
-
 const DataTable: React.FC = () => {
+const revalidationTime: number = 600; // 10 minutes
   const [dishes, setDishes] = useState<Dish[]>([]);
 
   useEffect(() => {
