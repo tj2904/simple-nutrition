@@ -8,7 +8,8 @@ interface Dish {
     ingredientId: number;
     name: string;
   }[];
-}
+
+const revalidationTime: number = 600 // 10 minutes
 
 const DataTable: React.FC = () => {
   const [dishes, setDishes] = useState<Dish[]>([]);
@@ -17,6 +18,8 @@ const DataTable: React.FC = () => {
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
+next: { revalidate: reavalidationTime},
+
       }).then(async (res) => {
         setDishes(await res.json());
       });
