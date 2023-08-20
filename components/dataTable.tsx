@@ -7,7 +7,7 @@ interface Dish {
   ingredients: {
     ingredientId: number;
     name: string;
-  }[];
+  };
 
 const DataTable: React.FC = () => {
 
