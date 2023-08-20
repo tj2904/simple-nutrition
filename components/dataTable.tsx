@@ -20,6 +20,7 @@ export default function DataTable() {
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
+        next: { revalidate: 1 },
       }).then(async (res) => {
         setDishes(await res.json());
       });
