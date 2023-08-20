@@ -12,6 +12,9 @@ interface Dish {
     name: string;
   };
 }
+[];
+
+const revalidationTime: number = 600; // 10 minutes
 
 export default function DataTable() {
   const [dishes, setDishes] = useState<Dish[]>([]);
@@ -20,7 +23,7 @@ export default function DataTable() {
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-        next: { revalidate: 1 },
+        next: { revalidate: revalidationTime },
       }).then(async (res) => {
         setDishes(await res.json());
       });
