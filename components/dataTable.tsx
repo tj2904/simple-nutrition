@@ -5,12 +5,15 @@ interface Dish {
   id: number;
   name: string;
   ingredients: {
+    map(
+      arg0: (ingredient: any) => import("react").JSX.Element
+    ): import("react").ReactNode;
     ingredientId: number;
     name: string;
   };
+}
 
-export default function DataTable: React.FC = () => {
-
+export default function DataTable() {
   const [dishes, setDishes] = useState<Dish[]>([]);
 
   useEffect(() => {
@@ -72,12 +75,12 @@ export default function DataTable: React.FC = () => {
                           {dish.name}
                         </td>
                         <td className="px-3 py-4 text-sm">
-                          {dish.ingredients.map((ingredient) => (
+                          {dish.ingredients.map((i) => (
                             <span
-                              key={`${ingredient.ingredientId}-${ingredient.name}`}
+                              key={`${i.ingredientId}-${i.name}`}
                               className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-medium text-stone-200"
                             >
-                              {ingredient.name}
+                              {i.name}
                             </span>
                           ))}
                         </td>
@@ -92,5 +95,4 @@ export default function DataTable: React.FC = () => {
       </div>
     </div>
   );
-};
-
+}
