@@ -18,7 +18,7 @@ const DataTable: React.FC = () => {
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-next: { revalidate: reavalidationTime},
+next: { revalidate: revalidationTime},
 
       }).then(async (res) => {
         setDishes(await res.json());
