@@ -15,7 +15,7 @@ function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default async function NavBar({ session }: any) {
+export default function NavBar({ session }: any) {
   const pathname = usePathname();
   const inSession = session;
 
