@@ -7,19 +7,17 @@ import {
   XMarkIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
-import { usePathname } from "next/navigation";
 import Link from "next/link";
 import { signOut } from "next-auth/react";
+import { getSession } from "next-auth/react";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function NavBar({ session }: any) {
-  const pathname = usePathname();
-  const inSession = session;
+export default async function NavBar() {
+  const inSession = await getSession();
 
-  console.log("Session:", inSession);
   return (
     <Disclosure as="nav" className="border-b-[1px] border-b-stone-400">
       {({ open }) => (
@@ -47,21 +45,17 @@ export default function NavBar({ session }: any) {
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                     <a
                       href="/"
-                      className={`rounded-md px-3 py-2 text-sm font-medium ${
-                        pathname === "/"
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-600 hover:text-white"
-                      }`}
+                      className={
+                        "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-600 hover:text-white"
+                      }
                     >
                       Home
                     </a>
                     <a
                       href="/multi-search"
-                      className={`rounded-md px-3 py-2 text-sm font-medium ${
-                        pathname === "/multi-search"
-                          ? "bg-gray-900 text-white"
-                          : "text-gray-300 hover:bg-gray-600 hover:text-white"
-                      }`}
+                      className={
+                        "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-600 hover:text-white"
+                      }
                     >
                       Search
                     </a>
@@ -80,7 +74,9 @@ export default function NavBar({ session }: any) {
                   </button> */}
 
                   {/* Profile dropdown */}
-                  {inSession ? (
+                  {inSession !== undefined &&
+                  inSession !== null &&
+                  inSession.user ? (
                     <Menu as="div" className="relative ml-3">
                       <div>
                         <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -163,45 +159,38 @@ export default function NavBar({ session }: any) {
               <Disclosure.Button
                 as="a"
                 href="/"
-                className={`block rounded-md ${
-                  pathname === "/"
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-400 hover:bg-gray-600 hover:text-white"
-                } px-3 py-2 text-base font-medium`}
+                className={`block rounded-md text-gray-400 hover:bg-gray-600 hover:text-white px-3 py-2 text-base font-medium`}
               >
                 Home
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="/multi-search"
-                className={`block rounded-md ${
-                  pathname === "/multi-search"
-                    ? "bg-gray-900 text-white"
-                    : "text-gray-400 hover:bg-gray-600 hover:text-white"
-                } px-3 py-2 text-base font-medium`}
+                className={`block rounded-md text-gray-400 hover:bg-gray-600 hover:text-white px-3 py-2 text-base font-medium`}
               >
                 Search
               </Disclosure.Button>
             </div>
-            <div className="border-t border-slate-400 bg-slate-600 pb-3 pt-4">
-              <div className="flex items-center px-5">
-                <div className="flex-shrink-0">
-                  {/* <img
+            {inSession !== undefined && inSession !== null && inSession.user ? (
+              <div className="border-t border-slate-400 bg-slate-600 pb-3 pt-4">
+                <div className="flex items-center px-5">
+                  <div className="flex-shrink-0">
+                    {/* <img
                     className="h-10 w-10 rounded-full"
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
                   /> */}
-                  <UserCircleIcon className="h-10 w-10 rounded-full" />
-                </div>
-                <div className="ml-3">
-                  <div className="text-base font-medium text-white">
-                    {inSession.user.email}
+                    <UserCircleIcon className="h-10 w-10 rounded-full" />
                   </div>
-                  <div className="text-sm font-medium text-gray-400">
-                    {inSession.user.email}
+                  <div className="ml-3">
+                    <div className="text-base font-medium text-white">
+                      {inSession.user.email}
+                    </div>
+                    <div className="text-sm font-medium text-gray-400">
+                      {inSession.user.email}
+                    </div>
                   </div>
-                </div>
-                {/* <button
+                  {/* <button
                   type="button"
                   className="relative ml-auto flex-shrink-0 rounded-full  p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                 >
@@ -209,24 +198,38 @@ export default function NavBar({ session }: any) {
                   <span className="sr-only">View notifications</span>
                   <BellIcon className="h-6 w-6" aria-hidden="true" />
                 </button> */}
-              </div>
-              <div className="mt-3 space-y-1 px-2">
-                <Disclosure.Button
-                  as="a"
-                  href="/profile"
-                  className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-800 hover:text-white"
-                >
-                  Your Profile
-                </Disclosure.Button>
+                </div>
+                <div className="mt-3 space-y-1 px-2">
+                  <Disclosure.Button
+                    as="a"
+                    href="/profile"
+                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-800 hover:text-white"
+                  >
+                    Your Profile
+                  </Disclosure.Button>
 
-                <Disclosure.Button
-                  onClick={() => signOut()}
-                  className="block rounded-md w-full text-left px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-800 hover:text-white"
-                >
-                  Sign out
-                </Disclosure.Button>
+                  <Disclosure.Button
+                    onClick={() => signOut()}
+                    className="block rounded-md w-full text-left px-3 py-2 text-base font-medium text-gray-200 bg-gray-900 hover:bg-gray-800 hover:text-white"
+                  >
+                    Sign out
+                  </Disclosure.Button>
+                </div>
               </div>
-            </div>
+            ) : (
+              <div className="border-t border-slate-400 bg-slate-600 pb-3 pt-4">
+                <div className="flex items-center px-5">
+                  <div className="flex-shrink-0"></div>
+                  <Disclosure.Button
+                    as="a"
+                    href="/login"
+                    className="block rounded-md w-full text-left px-3 py-2 text-base font-medium text-gray-200 bg-gray-900 hover:bg-gray-800 hover:text-white"
+                  >
+                    Login / Register
+                  </Disclosure.Button>
+                </div>
+              </div>
+            )}
           </Disclosure.Panel>
         </>
       )}
