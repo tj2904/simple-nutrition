@@ -85,7 +85,7 @@ export default function NavBar() {
                     src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                     alt=""
                   /> */}
-                          <UserCircleIcon className="h-10 w-10 rounded-full bg-slate-700" />
+                          <UserCircleIcon className="h-10 w-10 rounded-full bg-slate-700 text-gray-300" />
                         </Menu.Button>
                       </div>
                       <Transition
@@ -97,7 +97,7 @@ export default function NavBar() {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="absolute right-0 z-10 mt-3 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Items className="absolute right-0 z-10 mt-4 w-48 origin-top-right rounded-md bg-gray-300 py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
                           <Menu.Item>
                             <div className="text-sm text-center text-gray-700 font-semibold">
                               {session?.user?.email}
@@ -123,12 +123,7 @@ export default function NavBar() {
                                 onClick={() => signOut()}
                                 className="block w-full"
                               >
-                                <a
-                                  className={classNames(
-                                    active ? "bg-gray-100" : "",
-                                    "block px-4 py-2 text-sm text-left text-gray-700"
-                                  )}
-                                >
+                                <a className="rounded-md block text-left px-4 py-2 mx-2 text-sm font-medium text-gray-200 bg-gray-900 hover:bg-gray-800 hover:text-white">
                                   Sign out
                                 </a>
                               </button>
@@ -198,14 +193,14 @@ export default function NavBar() {
                       {session?.user?.email}
                     </div>
                   </div>
-                  <button
+                  {/* <button
                     type="button"
                     className="relative ml-auto flex-shrink-0 rounded-full  p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
                   >
                     <span className="absolute -inset-1.5" />
                     <span className="sr-only">View notifications</span>
                     <BellIcon className="h-6 w-6" aria-hidden="true" />
-                  </button>
+                  </button> */}
                 </div>
                 <div className="mt-3 space-y-1 px-2">
                   <Disclosure.Button
