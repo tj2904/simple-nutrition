@@ -37,6 +37,13 @@ export default function Home() {
             </button>
           </Link>
         </div>
+        <div>
+          <Link href="/multi-search">
+            <button className="w-[300px] mt-2 border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700  h-10  items-center justify-center rounded-md border text-sm transition-all focus:outline-none">
+              Search Ingredients
+            </button>
+          </Link>
+        </div>
       </div>
     </div>
   );

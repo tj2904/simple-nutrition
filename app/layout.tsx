@@ -5,8 +5,12 @@ import { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
+
 import Footer from "../components/footer";
 import { Suspense } from "react";
+import NavBar from "@/components/navBar";
+import AuthProvider from "./context/AuthProvider";
+import { getServerSession } from "next-auth";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -33,16 +37,22 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const session = await getServerSession();
   return (
     <html lang="en" className="bg-slate-700 text-stone-200">
       <body className={inter.variable}>
-        <Toaster />
-        <Suspense fallback="Loading...">
-          <AuthStatus />
-        </Suspense>
-        {children}
-        <Footer />
-        <Analytics />
+        <AuthProvider>
+          <Toaster />
+          {/* <Suspense fallback="Loading..."> */}
+          {/* <AuthStatus /> */}
+          <main>
+            <NavBar />
+          </main>
+          {/* </Suspense> */}
+          {children}
+          <Footer />
+          <Analytics />
+        </AuthProvider>
       </body>
     </html>
   );
