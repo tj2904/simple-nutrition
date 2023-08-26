@@ -18,7 +18,6 @@ function classNames(...classes: any) {
 export default function NavBar() {
   const { data: session } = useSession();
   const pathname = usePathname();
-  console.log("pathname: ", pathname);
   return (
     <Disclosure as="nav" className="border-b-[1px] border-b-stone-400">
       {({ open }) => (
