@@ -9,6 +9,7 @@ import {
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
 import { signOut, useSession } from "next-auth/react";
+import { usePathname } from "next/navigation";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
@@ -16,8 +17,8 @@ function classNames(...classes: any) {
 
 export default function NavBar() {
   const { data: session } = useSession();
-  console.log("session", session);
-
+  const pathname = usePathname();
+  console.log("pathname: ", pathname);
   return (
     <Disclosure as="nav" className="border-b-[1px] border-b-stone-400">
       {({ open }) => (
@@ -45,17 +46,21 @@ export default function NavBar() {
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                     <a
                       href="/"
-                      className={
-                        "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-600 hover:text-white"
-                      }
+                      className={`rounded-md px-3 py-2 text-sm font-medium ${
+                        pathname === "/"
+                          ? "bg-gray-800 text-white"
+                          : "text-gray-300 hover:bg-gray-600 hover:text-white"
+                      }`}
                     >
                       Home
                     </a>
                     <a
                       href="/multi-search"
-                      className={
-                        "rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-600 hover:text-white"
-                      }
+                      className={`rounded-md px-3 py-2 text-sm font-medium ${
+                        pathname === "/multi-search"
+                          ? "bg-gray-800 text-white"
+                          : "text-gray-300 hover:bg-gray-600 hover:text-white"
+                      }`}
                     >
                       Search
                     </a>
@@ -162,14 +167,22 @@ export default function NavBar() {
               <Disclosure.Button
                 as="a"
                 href="/"
-                className={`block rounded-md text-gray-400 hover:bg-gray-600 hover:text-white px-3 py-2 text-base font-medium`}
+                className={`block rounded-md ${
+                  pathname === "/"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-400 hover:bg-gray-600 hover:text-white"
+                } px-3 py-2 text-base font-medium`}
               >
                 Home
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
                 href="/multi-search"
-                className={`block rounded-md text-gray-400 hover:bg-gray-600 hover:text-white px-3 py-2 text-base font-medium`}
+                className={`block rounded-md ${
+                  pathname === "/multi-search"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-400 hover:bg-gray-600 hover:text-white"
+                } px-3 py-2 text-base font-medium`}
               >
                 Search
               </Disclosure.Button>
@@ -206,14 +219,18 @@ export default function NavBar() {
                   <Disclosure.Button
                     as="a"
                     href="/profile"
-                    className="block rounded-md px-3 py-2 text-base font-medium text-gray-400 hover:bg-gray-800 hover:text-white"
+                    className={`block rounded-md ${
+                      pathname === "/profile"
+                        ? "bg-gray-900 text-white"
+                        : "text-gray-400 hover:bg-gray-600 hover:text-white"
+                    } px-3 py-2 text-base font-medium`}
                   >
                     Your Profile
                   </Disclosure.Button>
 
                   <Disclosure.Button
                     onClick={() => signOut()}
-                    className="block rounded-md w-full text-left px-3 py-2 text-base font-medium text-gray-200 bg-gray-900 hover:bg-gray-800 hover:text-white"
+                    className="block rounded-md w-full text-left px-3 py-2 text-base font-medium text-gray-200 bg-gray-700 hover:bg-gray-800 hover:text-white"
                   >
                     Sign out
                   </Disclosure.Button>
