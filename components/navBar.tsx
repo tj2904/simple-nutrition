@@ -8,15 +8,15 @@ import {
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import Link from "next/link";
-import { signOut } from "next-auth/react";
-import { getSession } from "next-auth/react";
+import { signOut, useSession } from "next-auth/react";
 
 function classNames(...classes: any) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default async function NavBar() {
-  const inSession = await getSession();
+export default function NavBar() {
+  const { data: session } = useSession();
+  console.log("session", session);
 
   return (
     <Disclosure as="nav" className="border-b-[1px] border-b-stone-400">
@@ -74,9 +74,7 @@ export default async function NavBar() {
                   </button> */}
 
                   {/* Profile dropdown */}
-                  {inSession !== undefined &&
-                  inSession !== null &&
-                  inSession.user ? (
+                  {session ? (
                     <Menu as="div" className="relative ml-3">
                       <div>
                         <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
@@ -99,7 +97,12 @@ export default async function NavBar() {
                         leaveFrom="transform opacity-100 scale-100"
                         leaveTo="transform opacity-0 scale-95"
                       >
-                        <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                        <Menu.Items className="absolute right-0 z-10 mt-3 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                          <Menu.Item>
+                            <div className="text-sm text-center text-gray-700 font-semibold">
+                              {session?.user?.email}
+                            </div>
+                          </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
                               <a
@@ -120,7 +123,12 @@ export default async function NavBar() {
                                 onClick={() => signOut()}
                                 className="block w-full"
                               >
-                                <a className="block px-4 py-2 text-left text-sm bg-gray-100 text-gray-700">
+                                <a
+                                  className={classNames(
+                                    active ? "bg-gray-100" : "",
+                                    "block px-4 py-2 text-sm text-left text-gray-700"
+                                  )}
+                                >
                                   Sign out
                                 </a>
                               </button>
@@ -171,7 +179,7 @@ export default async function NavBar() {
                 Search
               </Disclosure.Button>
             </div>
-            {inSession !== undefined && inSession !== null && inSession.user ? (
+            {session ? (
               <div className="border-t border-slate-400 bg-slate-600 pb-3 pt-4">
                 <div className="flex items-center px-5">
                   <div className="flex-shrink-0">
@@ -184,20 +192,20 @@ export default async function NavBar() {
                   </div>
                   <div className="ml-3">
                     <div className="text-base font-medium text-white">
-                      {inSession.user.email}
+                      {session?.user?.email}
                     </div>
                     <div className="text-sm font-medium text-gray-400">
-                      {inSession.user.email}
+                      {session?.user?.email}
                     </div>
                   </div>
-                  {/* <button
-                  type="button"
-                  className="relative ml-auto flex-shrink-0 rounded-full  p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
-                >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
-                </button> */}
+                  <button
+                    type="button"
+                    className="relative ml-auto flex-shrink-0 rounded-full  p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  >
+                    <span className="absolute -inset-1.5" />
+                    <span className="sr-only">View notifications</span>
+                    <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  </button>
                 </div>
                 <div className="mt-3 space-y-1 px-2">
                   <Disclosure.Button

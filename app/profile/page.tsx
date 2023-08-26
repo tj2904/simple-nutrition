@@ -18,7 +18,7 @@ import { getServerSession } from "next-auth/next";
 export default async function Profile() {
   const inSession = await getServerSession();
   return (
-    <div className="max-w-screen-md mx-auto ">
+    <div className="max-w-screen-md mx-auto px-8">
       <form>
         <div className="space-y-12 ">
           <div className="border-b border-white/10 py-12">
