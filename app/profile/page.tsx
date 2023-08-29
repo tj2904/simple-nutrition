@@ -1,25 +1,41 @@
-/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-      // ...
-      require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/
+"use client";
+import LoadingDots from "@/components/loading-dots";
+import toast from "react-hot-toast";
 import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
-import { getServerSession } from "next-auth/next";
+import { useState } from "react";
+import { useSession } from "next-auth/react";
 
-export default async function Profile() {
-  const inSession = await getServerSession();
+export default function Profile() {
+  const { data: session } = useSession();
+  const [loading, setLoading] = useState(false);
+
   return (
     <div className="max-w-screen-md mx-auto px-8">
-      <form>
+      <form
+        onSubmit={(e) => {
+          e.preventDefault();
+          setLoading(true);
+          fetch("/api/user/update", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              email: session?.user?.email,
+              firstName: e.currentTarget.firstName.value,
+              surname: e.currentTarget.surname.value,
+            }),
+          }).then(async (res) => {
+            setLoading(false);
+            if (res.status === 200) {
+              toast.success("Profile updated!");
+            } else {
+              const { error } = await res.json();
+              toast.error(error);
+            }
+          });
+        }}
+      >
         <div className="space-y-12 ">
           <div className="border-b border-white/10 py-12">
             <h1 className="font-semibold text-xl leading-7 text-white">
@@ -39,11 +55,11 @@ export default async function Profile() {
                   Email address
                 </label>
                 <div className="mt-2">
-                  {inSession !== undefined &&
-                    inSession !== null &&
-                    inSession.user && (
+                  {session !== undefined &&
+                    session !== null &&
+                    session.user && (
                       <p className="block w-full pl-2  py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
-                        {inSession.user.email}
+                        {session.user.email}
                       </p>
                     )}
                 </div>
@@ -83,7 +99,7 @@ export default async function Profile() {
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
               <div className="sm:col-span-3">
                 <label
-                  htmlFor="first-name"
+                  htmlFor="firstName"
                   className="block text-sm font-medium leading-6 text-white"
                 >
                   First name
@@ -91,9 +107,11 @@ export default async function Profile() {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="first-name"
-                    id="first-name"
+                    name="firstName"
+                    id="firstName"
                     autoComplete="given-name"
+                    placeholder="John"
+                    value={session?.user?.firstName}
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -101,7 +119,7 @@ export default async function Profile() {
 
               <div className="sm:col-span-3">
                 <label
-                  htmlFor="last-name"
+                  htmlFor="surname"
                   className="block text-sm font-medium leading-6 text-white"
                 >
                   Last name
@@ -109,9 +127,11 @@ export default async function Profile() {
                 <div className="mt-2">
                   <input
                     type="text"
-                    name="last-name"
-                    id="last-name"
+                    name="surname"
+                    id="surname"
                     autoComplete="family-name"
+                    placeholder="Doe"
+                    value={session?.user?.surname}
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -122,18 +142,14 @@ export default async function Profile() {
 
         <div className="mt-6 flex items-center justify-end gap-x-6">
           <button
-            type="button"
-            disabled
-            className="text-sm font-semibold leading-6 text-white"
+            disabled={loading}
+            className={`${
+              loading
+                ? "cursor-not-allowed border-gray-200 bg-gray-100"
+                : "border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700"
+            } flex h-10 w-40 px-4 items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
           >
-            Cancel
-          </button>
-          <button
-            type="submit"
-            disabled
-            className="rounded-md bg-indigo-500 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-500"
-          >
-            Save
+            {loading ? <LoadingDots color="#808080" /> : <p>Update profile</p>}
           </button>
         </div>
       </form>
