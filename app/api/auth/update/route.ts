@@ -14,8 +14,8 @@ export async function POST(req: Request) {
         email,
       },
       data: {
-        firsName: firstName,
-        surname: surname,
+        FirstName: firstName,
+        Surname: surname,
       },
     });
     return NextResponse.json({ message: "User updated" }, { status: 200 });
