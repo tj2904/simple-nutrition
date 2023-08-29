@@ -6,7 +6,7 @@ import { useState } from "react";
 import { useSession } from "next-auth/react";
 
 export default function Profile() {
-  const { data: inSession } = useSession();
+  const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
 
   return (
@@ -21,7 +21,7 @@ export default function Profile() {
               "Content-Type": "application/json",
             },
             body: JSON.stringify({
-              email: inSession?.user?.email,
+              email: session?.user?.email,
               firstName: e.currentTarget.firstName.value,
               surname: e.currentTarget.surname.value,
             }),
@@ -55,11 +55,11 @@ export default function Profile() {
                   Email address
                 </label>
                 <div className="mt-2">
-                  {inSession !== undefined &&
-                    inSession !== null &&
-                    inSession.user && (
+                  {session !== undefined &&
+                    session !== null &&
+                    session.user && (
                       <p className="block w-full pl-2  py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
-                        {inSession.user.email}
+                        {session.user.email}
                       </p>
                     )}
                 </div>
@@ -111,7 +111,7 @@ export default function Profile() {
                     id="firstName"
                     autoComplete="given-name"
                     placeholder="John"
-                    value={inSession?.user?.firstName}
+                    value={session?.user?.firstName}
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -131,7 +131,7 @@ export default function Profile() {
                     id="surname"
                     autoComplete="family-name"
                     placeholder="Doe"
-                    value={inSession?.user?.surname}
+                    value={session?.user?.surname}
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -146,7 +146,7 @@ export default function Profile() {
             className={`${
               loading
                 ? "cursor-not-allowed border-gray-200 bg-gray-100"
-                : "border-slate-300 bg-slate-700 text-white hover:bg-white hover:text-slate-700"
+                : "border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700"
             } flex h-10 w-40 px-4 items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
           >
             {loading ? <LoadingDots color="#808080" /> : <p>Update profile</p>}
