@@ -15,7 +15,7 @@ export default function Profile() {
         onSubmit={(e) => {
           e.preventDefault();
           setLoading(true);
-          fetch("/api/auth/update", {
+          fetch("/api/user/update", {
             method: "POST",
             headers: {
               "Content-Type": "application/json",
