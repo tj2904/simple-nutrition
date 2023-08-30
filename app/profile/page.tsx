@@ -4,7 +4,7 @@ import toast from "react-hot-toast";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
-import CurrentProfile from "@/components/currentProfile";
+import CurrentProfile from "@/components/CurrentProfile";
 
 export default function Profile() {
   const { data: session } = useSession();
