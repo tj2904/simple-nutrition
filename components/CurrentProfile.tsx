@@ -1,7 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 
-export default function currentProfile(email: any) {
+export default function CurrentProfile(email: any) {
   const [details, setDetails]: any = useState();
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function currentProfile(email: any) {
         console.log(res);
       }
     });
-  }, []);
+  }, [email.email]);
 
   return (
     <div>
