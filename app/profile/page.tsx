@@ -1,14 +1,14 @@
 "use client";
 import LoadingDots from "@/components/loading-dots";
 import toast from "react-hot-toast";
-import { PhotoIcon, UserCircleIcon } from "@heroicons/react/24/solid";
+import { UserCircleIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 import { useSession } from "next-auth/react";
+import CurrentProfile from "@/components/currentProfile";
 
 export default function Profile() {
   const { data: session } = useSession();
   const [loading, setLoading] = useState(false);
-
   return (
     <div className="max-w-screen-md mx-auto px-8">
       <form
@@ -29,6 +29,7 @@ export default function Profile() {
             setLoading(false);
             if (res.status === 200) {
               toast.success("Profile updated!");
+              location.reload();
             } else {
               const { error } = await res.json();
               toast.error(error);
@@ -45,32 +46,18 @@ export default function Profile() {
               This information will be displayed publicly so be careful what you
               share.
             </p>
+            {session !== undefined && session !== null && session.user && (
+              <CurrentProfile email={session.user.email} />
+            )}
 
             <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
-              <div className="sm:col-span-4">
-                <label
-                  htmlFor="email"
-                  className="block text-sm font-medium leading-6 text-white"
-                >
-                  Email address
-                </label>
-                <div className="mt-2">
-                  {session !== undefined &&
-                    session !== null &&
-                    session.user && (
-                      <p className="block w-full pl-2  py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6">
-                        {session.user.email}
-                      </p>
-                    )}
-                </div>
-              </div>
-
               <div className="col-span-full">
                 <label
                   htmlFor="photo"
                   className="block text-sm font-medium leading-6 text-white"
                 >
-                  Photo
+                  <span className="font-light line-through ">Photo</span> (Not
+                  currently avaliable)
                 </label>
                 <div className="mt-2 flex items-center gap-x-3">
                   <UserCircleIcon
@@ -78,6 +65,7 @@ export default function Profile() {
                     aria-hidden="true"
                   />
                   <button
+                    disabled={true}
                     type="button"
                     className="rounded-md bg-white/10 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-white/20"
                   >
@@ -90,7 +78,7 @@ export default function Profile() {
 
           <div className="border-b border-white/10 pb-12">
             <h2 className="text-base font-semibold leading-7 text-white">
-              Personal Information
+              Add Personal Information
             </h2>
             <p className="mt-1 text-sm leading-6 text-gray-400">
               Optional, only add the informaiton you want to share.
@@ -111,7 +99,6 @@ export default function Profile() {
                     id="firstName"
                     autoComplete="given-name"
                     placeholder="John"
-                    value={session?.user?.firstName}
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -131,7 +118,6 @@ export default function Profile() {
                     id="surname"
                     autoComplete="family-name"
                     placeholder="Doe"
-                    value={session?.user?.surname}
                     className="block w-full rounded-md border-0 bg-white/5 py-1.5 text-white shadow-sm ring-1 ring-inset ring-white/10 focus:ring-2 focus:ring-inset focus:ring-indigo-500 sm:text-sm sm:leading-6"
                   />
                 </div>
@@ -149,7 +135,7 @@ export default function Profile() {
                 : "border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700"
             } flex h-10 w-40 px-4 items-center justify-center rounded-md border text-sm transition-all focus:outline-none`}
           >
-            {loading ? <LoadingDots color="#808080" /> : <p>Update profile</p>}
+            {loading ? <LoadingDots color="#808080" /> : <p>Update Name</p>}
           </button>
         </div>
       </form>
