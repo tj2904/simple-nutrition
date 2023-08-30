@@ -1,83 +1,41 @@
-import prisma from "@/lib/prisma";
+"use client";
+import MultiNutrientListing from "@/components/MultiNutrientListing";
+import DataTable from "@/components/dataTable";
+import { useState } from "react";
+import toast from "react-hot-toast";
+import { Ingredient, Nutrient } from "types";
+import {
+  combineNutrientArrays,
+  compareObjects,
+  moveZerosToEnd,
+} from "utils/NutrientHandling";
 
-// interface Dish {
-//   id: number;
-//   name: string;
-//   ingredients: {
-//     map(
-//       arg0: (ingredient: any) => import("react").JSX.Element
-//     ): import("react").ReactNode;
-//     ingredientId: number;
-//     name: string;
-//   };
-// }
+let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 
-export default async function Dishes() {
-  const dishes = await prisma.dish.findMany({ include: { ingredients: true } });
+export default function Dishes() {
+  const [selectedFood, setSelectedFood] = useState<Ingredient[]>([]);
+  const [apiResult, setApiResult] = useState<Nutrient[] | null>(null);
+  const [images, setImages] = useState<string[]>([]);
+
+  const handleApiResult = (result: Nutrient[], fetchedImages: string[]) => {
+    setApiResult(result);
+    setImages(fetchedImages);
+  };
 
   return (
     <section className="min-h-screen">
-      <div className="mx-auto max-w-7xl ">
-        <div className="py-10">
-          <div className="px-4 sm:px-6 lg:px-8">
-            <div className="sm:flex  sm:items-center">
-              <div className="sm:flex-auto">
-                <h1 className="text-xl font-semibold leading-6 text-white">
-                  Dishes
-                </h1>
-                <p className="mt-2 text-sm text-gray-300">
-                  A list of all the saved dishes in your account showing their
-                  name and ingredients.
-                </p>
-              </div>
-              <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none"></div>
-            </div>
-            <div className="mt-8 flow-root">
-              <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
-                <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                  <table className="min-w-full divide-y divide-slate-300 table-fixed">
-                    <thead>
-                      <tr>
-                        <th
-                          scope="col"
-                          className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
-                        >
-                          Name
-                        </th>
-                        <th
-                          scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-white"
-                        >
-                          Ingredients
-                        </th>
-                      </tr>
-                    </thead>
-                    <tbody className="divide-y divide-slate-600">
-                      {dishes.map((dish) => (
-                        <tr key={dish.id}>
-                          <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
-                            {dish.name}
-                          </td>
-                          <td className="px-3 py-4 text-sm">
-                            {dish.ingredients.map((i) => (
-                              <span
-                                key={`${i.ingredientId}-${i.name}`}
-                                className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-medium text-stone-200"
-                              >
-                                {i.name}
-                              </span>
-                            ))}
-                          </td>
-                        </tr>
-                      ))}
-                    </tbody>
-                  </table>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+      <DataTable
+        selectedFood={selectedFood}
+        setSelectedFood={setSelectedFood}
+        handleApiResult={handleApiResult}
+        setApiResult={setApiResult} // Pass setApiResult function
+      />
+      {apiResult && (
+        <section className="max-w-screen-xl mx-auto">
+          <h1 className="font-bold text-2xl">Nutritional Content</h1>
+          <MultiNutrientListing nutrients={apiResult} images={images} />
+        </section>
+      )}
     </section>
   );
 }

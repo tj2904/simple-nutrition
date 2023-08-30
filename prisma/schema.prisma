@@ -10,10 +10,12 @@ datasource db {
 }
 
 model User {
-  id       Int    @id @default(autoincrement())
-  email    String @unique
-  password String
-  foods    Food[]
+  id        Int     @id @default(autoincrement())
+  email     String  @unique
+  password  String
+  firstName String?
+  surname   String?
+  foods     Food[]
 }
 
 model Food {
@@ -75,5 +77,3 @@ model Dish {
   updatedAt   DateTime     @updatedAt
   ingredients Ingredient[]
 }
-
-// Example column: name: "Pasta Carbonara"

@@ -1,10 +1,19 @@
 "use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useLayoutEffect, useRef } from "react";
+import { Ingredient, ApiResponse, Nutrient } from "../types";
+import { fetchNutrients } from "../utils/extApis";
+import {
+  compareObjects,
+  moveZerosToEnd,
+  combineNutrientArrays,
+} from "../utils/NutrientHandling";
+import { toast } from "react-hot-toast";
 
 interface Dish {
   id: number;
   name: string;
   ingredients: {
+    forEach(arg0: (ingredient: any) => void): unknown;
     map(
       arg0: (ingredient: any) => import("react").JSX.Element
     ): import("react").ReactNode;
@@ -14,10 +23,67 @@ interface Dish {
 }
 [];
 
+function classNames(...classes: string[]) {
+  return classes.filter(Boolean).join(" ");
+}
+
+let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
+
 const revalidationTime: number = 600; // 10 minutes
 
-export default function DataTable() {
+export default function DataTable({
+  selectedFood,
+  setSelectedFood,
+  handleApiResult,
+  setApiResult, // Receive setApiResult function
+}: {
+  selectedFood: Ingredient[];
+  setSelectedFood: React.Dispatch<React.SetStateAction<Ingredient[]>>;
+  handleApiResult: (result: Nutrient[], fetchedImages: string[]) => void;
+  setApiResult: React.Dispatch<React.SetStateAction<Nutrient[] | null>>; // Define the type for setApiResult
+}) {
+  const checkbox = useRef();
+  const [checked, setChecked] = useState(false);
+  const [indeterminate, setIndeterminate] = useState(false);
+  const [selectedDishes, setSelectedDishes] = useState<Dish[]>([]);
   const [dishes, setDishes] = useState<Dish[]>([]);
+
+  const handleApiCall = async () => {
+    if (selectedFood && Array.isArray(selectedFood)) {
+      // empty array before pushing new image data
+      const fetchedImages: string[] = []; // Initialize the array
+      const fetchPromises = selectedFood.map((food) => {
+        const foodId = food.ingredientId;
+        return fetch(
+          `https://api.spoonacular.com/food/ingredients/${foodId}/information?apiKey=${ApiKey}&amount=100&unit=grams`
+        )
+          .then((response) => response.json())
+          .then((data) => {
+            fetchedImages.push(data.image); // Push the image
+            data.nutrition.nutrients.sort(compareObjects);
+            const sortedNutrients = moveZerosToEnd(data.nutrition.nutrients);
+            return sortedNutrients;
+          })
+          .catch((error) => {
+            console.log(error);
+            toast.error("Error fetching nutrients");
+            return null;
+          });
+      });
+
+      Promise.all(fetchPromises)
+        .then((results) => {
+          const combinedArray = combineNutrientArrays(results);
+          let sortedArray = combinedArray.sort(compareObjects);
+          sortedArray = moveZerosToEnd(sortedArray);
+          setApiResult(sortedArray);
+          handleApiResult(sortedArray, fetchedImages); // Pass fetchedImages back to parent
+        })
+        .catch((error) => {
+          console.log(error);
+        });
+    }
+  };
 
   useEffect(() => {
     async function fetchData() {
@@ -31,9 +97,50 @@ export default function DataTable() {
     fetchData();
   }, []);
 
-  const handleRowClick = (selectedDish: Dish) => {
-    // Here you can access the selected dish and its ingredients
-    console.log("row clicked");
+  console.log("selected dishes", selectedDishes);
+
+  useLayoutEffect(() => {
+    const isIndeterminate =
+      selectedDishes.length > 0 && selectedDishes.length < dishes.length;
+    setChecked(selectedDishes.length === dishes.length);
+    setIndeterminate(isIndeterminate);
+    checkbox.current.indeterminate = isIndeterminate;
+  }, [selectedDishes]);
+
+  function toggleAll() {
+    setSelectedDishes(checked || indeterminate ? [] : dishes);
+    setChecked(!checked && !indeterminate);
+    setIndeterminate(false);
+  }
+
+  const lookUpAllIngredients = async () => {
+    // Step 2: Extract ingredients from each item and flatten the list
+    const allIngredients: Ingredient[] = [];
+    selectedDishes.forEach((selectedDish) => {
+      selectedDish.ingredients.forEach((ingredient: any) => {
+        allIngredients.push(ingredient);
+      });
+    });
+
+    // Step 4: Remove duplicate ingredients (optional)
+    const uniqueIngredients = allIngredients.reduce(
+      (uniqueList: any[], ingredient: { ingredientId: any }) => {
+        if (
+          !uniqueList.some((i) => i.ingredientId === ingredient.ingredientId)
+        ) {
+          uniqueList.push(ingredient);
+        }
+        return uniqueList;
+      },
+      [] as Ingredient[]
+    );
+    setSelectedFood(uniqueIngredients);
+
+    // Now you have a list of all unique ingredients
+    console.log("onClick", uniqueIngredients);
+
+    // call the api
+    handleApiCall();
   };
 
   return (
@@ -58,15 +165,24 @@ export default function DataTable() {
                 <table className="min-w-full divide-y divide-slate-300 table-fixed">
                   <thead>
                     <tr>
+                      <th scope="col" className="relative px-7 sm:w-12 sm:px-6">
+                        <input
+                          type="checkbox"
+                          className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          ref={checkbox}
+                          checked={checked}
+                          onChange={toggleAll}
+                        />
+                      </th>
                       <th
                         scope="col"
-                        className="py-3.5 pl-4 pr-3 text-left text-sm font-semibold text-white sm:pl-0"
+                        className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900"
                       >
                         Name
                       </th>
                       <th
                         scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-white"
+                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
                       >
                         Ingredients
                       </th>
@@ -74,8 +190,40 @@ export default function DataTable() {
                   </thead>
                   <tbody className="divide-y divide-slate-600">
                     {dishes.map((dish) => (
-                      <tr key={dish.id}>
-                        <td className="whitespace-nowrap py-4 pl-4 pr-3 text-sm font-medium text-white sm:pl-0">
+                      <tr
+                        key={dish.id}
+                        className={
+                          selectedDishes.includes(dish)
+                            ? "bg-gray-50"
+                            : undefined
+                        }
+                      >
+                        <td className="relative px-7 sm:w-12 sm:px-6">
+                          {selectedDishes.includes(dish) && (
+                            <div className="absolute inset-y-0 left-0 w-0.5 bg-indigo-600" />
+                          )}
+                          <input
+                            type="checkbox"
+                            className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                            value={dish.id}
+                            checked={selectedDishes.includes(dish)}
+                            onChange={(e) =>
+                              setSelectedDishes(
+                                e.target.checked
+                                  ? [...selectedDishes, dish]
+                                  : selectedDishes.filter((p) => p !== dish)
+                              )
+                            }
+                          />
+                        </td>
+                        <td
+                          className={classNames(
+                            "whitespace-nowrap py-4 pr-3 text-sm font-medium",
+                            selectedDishes.includes(dish)
+                              ? "text-indigo-600"
+                              : "text-gray-900"
+                          )}
+                        >
                           {dish.name}
                         </td>
                         <td className="px-3 py-4 text-sm">
@@ -97,6 +245,13 @@ export default function DataTable() {
           </div>
         </div>
       </div>
+
+      <button
+        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+        onClick={lookUpAllIngredients}
+      >
+        Look up ingredients for all selected dishes
+      </button>
     </div>
   );
 }
