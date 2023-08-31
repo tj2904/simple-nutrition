@@ -37,7 +37,7 @@ export default function SaveAsDish({ selectedFood }: any) {
       {/* Input field for custom dish name */}
       <div className="grid  grid-cols-2 md:grid-cols-4 gap-x-4 gap-y-2 ">
         <div className="col-span-2 col-start-1">
-          <label className=" mr-2 font-medium">Custom Dish Name:</label>
+          <label className=" mr-2 font-medium">Dish Name:</label>
           <input
             type="text"
             value={dishName}

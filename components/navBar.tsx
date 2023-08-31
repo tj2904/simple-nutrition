@@ -63,6 +63,16 @@ export default function NavBar() {
                     >
                       Search
                     </a>
+                    <a
+                      href="/dishes"
+                      className={`rounded-md px-3 py-2 text-sm font-medium ${
+                        pathname === "/dishes"
+                          ? "bg-gray-800 text-white"
+                          : "text-gray-300 hover:bg-gray-600 hover:text-white"
+                      }`}
+                    >
+                      Saved Dishes
+                    </a>
                   </div>
                 </div>
               </div>
@@ -184,6 +194,17 @@ export default function NavBar() {
                 } px-3 py-2 text-base font-medium`}
               >
                 Search
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="/dishes"
+                className={`block rounded-md ${
+                  pathname === "/dishes"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-400 hover:bg-gray-600 hover:text-white"
+                } px-3 py-2 text-base font-medium`}
+              >
+                Saved Dishes
               </Disclosure.Button>
             </div>
             {session ? (
