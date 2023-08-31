@@ -151,7 +151,7 @@ export default function DataTable({
               <h1 className="text-xl font-semibold leading-6 text-white">
                 Dishes
               </h1>
-              <p className="mt-2 text-sm text-gray-300">
+              <p className="mt-2 text-lg text-left text-slate-300">
                 A list of all the saved dishes in your account showing their
                 name and ingredients.
               </p>
