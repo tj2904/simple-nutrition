@@ -2,15 +2,7 @@
 import MultiNutrientListing from "@/components/MultiNutrientListing";
 import DataTable from "@/components/dataTable";
 import { useState } from "react";
-import toast from "react-hot-toast";
 import { Ingredient, Nutrient } from "types";
-import {
-  combineNutrientArrays,
-  compareObjects,
-  moveZerosToEnd,
-} from "utils/NutrientHandling";
-
-let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 
 export default function Dishes() {
   const [selectedFood, setSelectedFood] = useState<Ingredient[]>([]);
@@ -23,19 +15,21 @@ export default function Dishes() {
   };
 
   return (
-    <section className="min-h-screen">
-      <DataTable
-        selectedFood={selectedFood}
-        setSelectedFood={setSelectedFood}
-        handleApiResult={handleApiResult}
-        setApiResult={setApiResult} // Pass setApiResult function
-      />
+    <>
+      <section className="min-h-screen">
+        <DataTable
+          selectedFood={selectedFood}
+          setSelectedFood={setSelectedFood}
+          handleApiResult={handleApiResult}
+          setApiResult={setApiResult} // Pass setApiResult function
+        />
+      </section>
       {apiResult && (
-        <section className="max-w-screen-xl mx-auto">
-          <h1 className="font-bold text-2xl">Nutritional Content</h1>
+        <section className="max-w-screen-xl mx-auto clear-both mt-8 md:-mt-36">
+          <h3 className="font-semibold text-xl ml-5">Nutritional Content</h3>
           <MultiNutrientListing nutrients={apiResult} images={images} />
         </section>
       )}
-    </section>
+    </>
   );
 }

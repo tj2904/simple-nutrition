@@ -19,7 +19,7 @@ export default function MultiNutritionalListing(props: any) {
 
   return (
     <div className="px-2 mx-3">
-      <h2 className="text-xl font-semibold text-left text-gray-500">
+      <h2 className="text-lg text-left text-gray-500">
         Combined nutrients, sorted by highest amount first
       </h2>
       <div className="isolate flex -space-x-1 mt-1">

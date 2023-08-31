@@ -51,7 +51,7 @@ export default function DataTable({
   const handleApiCall = async () => {
     if (selectedFood && Array.isArray(selectedFood)) {
       // empty array before pushing new image data
-      const fetchedImages: string[] = []; // Initialize the array
+      const fetchedImages: string[] = [];
       const fetchPromises = selectedFood.map((food) => {
         const foodId = food.ingredientId;
         return fetch(
@@ -97,13 +97,12 @@ export default function DataTable({
     fetchData();
   }, []);
 
-  console.log("selected dishes", selectedDishes);
-
   useLayoutEffect(() => {
     const isIndeterminate =
       selectedDishes.length > 0 && selectedDishes.length < dishes.length;
     setChecked(selectedDishes.length === dishes.length);
     setIndeterminate(isIndeterminate);
+    // @ts-ignore
     checkbox.current.indeterminate = isIndeterminate;
   }, [selectedDishes]);
 
@@ -147,7 +146,7 @@ export default function DataTable({
     <div className="mx-auto max-w-7xl ">
       <div className="py-10">
         <div className="px-4 sm:px-6 lg:px-8">
-          <div className="sm:flex  sm:items-center">
+          <div className="sm:flex sm:items-center">
             <div className="sm:flex-auto">
               <h1 className="text-xl font-semibold leading-6 text-white">
                 Dishes
@@ -159,7 +158,7 @@ export default function DataTable({
             </div>
             <div className="mt-4 sm:ml-16 sm:mt-0 sm:flex-none"></div>
           </div>
-          <div className="mt-8 flow-root">
+          <div className="m-1 flow-root">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
                 <table className="min-w-full divide-y divide-slate-300 table-fixed">
@@ -169,6 +168,7 @@ export default function DataTable({
                         <input
                           type="checkbox"
                           className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                          // @ts-ignore
                           ref={checkbox}
                           checked={checked}
                           onChange={toggleAll}
@@ -176,13 +176,13 @@ export default function DataTable({
                       </th>
                       <th
                         scope="col"
-                        className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-gray-900"
+                        className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-slate-300"
                       >
                         Name
                       </th>
                       <th
                         scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900"
+                        className="px-3 py-3.5 text-left text-sm font-semibold text-slate-300"
                       >
                         Ingredients
                       </th>
@@ -194,7 +194,7 @@ export default function DataTable({
                         key={dish.id}
                         className={
                           selectedDishes.includes(dish)
-                            ? "bg-gray-50"
+                            ? "bg-slate-600"
                             : undefined
                         }
                       >
@@ -220,8 +220,8 @@ export default function DataTable({
                           className={classNames(
                             "whitespace-nowrap py-4 pr-3 text-sm font-medium",
                             selectedDishes.includes(dish)
-                              ? "text-indigo-600"
-                              : "text-gray-900"
+                              ? "text-slate-200"
+                              : "text-slate-300"
                           )}
                         >
                           {dish.name}
@@ -230,7 +230,7 @@ export default function DataTable({
                           {dish.ingredients.map((i) => (
                             <span
                               key={`${i.ingredientId}-${i.name}`}
-                              className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-medium text-stone-200"
+                              className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-normal text-center text-stone-200"
                             >
                               {i.name}
                             </span>
@@ -247,10 +247,10 @@ export default function DataTable({
       </div>
 
       <button
-        className="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+        className="float-right px-2 mr-2 md:mr-6 mb-8 md:mb-0 border-stone-400 bg-slate-700 text-sm text-white hover:bg-white hover:text-slate-700 h-10 rounded-md border transition-all focus:outline-none"
         onClick={lookUpAllIngredients}
       >
-        Look up ingredients for all selected dishes
+        Search ingredients for all selected dishes
       </button>
     </div>
   );
