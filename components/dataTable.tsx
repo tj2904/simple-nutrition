@@ -104,7 +104,7 @@ export default function DataTable({
     setIndeterminate(isIndeterminate);
     // @ts-ignore
     checkbox.current.indeterminate = isIndeterminate;
-  }, [selectedDishes]);
+  }, [selectedDishes, dishes.length]);
 
   function toggleAll() {
     setSelectedDishes(checked || indeterminate ? [] : dishes);
