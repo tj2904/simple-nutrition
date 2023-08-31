@@ -1,7 +1,7 @@
 import { GoXCircleFill } from "react-icons/go";
 import { Nutrient } from "types";
 
-export default function NutritionalListingByValue(props: any) {
+export default function MultiNutritionalListing(props: any) {
   const nutrients = props.nutrients;
   const images = props.images;
 
@@ -19,10 +19,10 @@ export default function NutritionalListingByValue(props: any) {
 
   return (
     <div className="px-2 mx-3">
-      <h2 className="text-xl font-semibold text-left text-gray-500">
+      <h2 className="text-lg text-left text-slate-300">
         Combined nutrients, sorted by highest amount first
       </h2>
-      <div className="isolate flex -space-x-1 overflow-hidden mt-1">
+      <div className="isolate flex -space-x-1 mt-1">
         {images.reverse().map((i: any, index: number) => (
           <img
             className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-700 bg-white"
@@ -50,7 +50,7 @@ export default function NutritionalListingByValue(props: any) {
           }
           return (
             <>
-              <li key={nutrient.name} className={itemClassName}>
+              <li key={`${nutrient.name}-${index}`} className={itemClassName}>
                 {nutrient.amount > 0 ? (
                   <div className="flex w-16 flex-shrink-0 items-center justify-center rounded-l-md text-sm font-bold text-white">
                     {index + 1}

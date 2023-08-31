@@ -62,18 +62,18 @@ model Food {
   user          User     @relation(fields: [userId], references: [id])
 }
 
-model Dish {
-  id         Int          @id @default(autoincrement())
-  name       String
-  createdAt  DateTime     @default(now())
-  updatedAt  DateTime
-  Ingredient Ingredient[]
-}
-
 model Ingredient {
   id           Int    @id @default(autoincrement())
   ingredientId Int
   name         String
   dishId       Int
   Dish         Dish   @relation(fields: [dishId], references: [id])
+}
+
+model Dish {
+  id          Int          @id @default(autoincrement())
+  name        String
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+  ingredients Ingredient[]
 }

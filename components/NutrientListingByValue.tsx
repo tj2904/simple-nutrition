@@ -14,7 +14,7 @@ export default function NutritionalListingByValue(nut: any) {
       >
         {nutrients.map((nutrient: any, index: number) => (
           <li
-            key={nutrient.name}
+            key={`${nutrient.name}-${index}`}
             className="col-span-1 flex rounded-md shadow-sm"
           >
             {nutrient.amount > 0 ? (

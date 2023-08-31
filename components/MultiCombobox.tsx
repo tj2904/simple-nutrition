@@ -2,95 +2,66 @@
 import React, { useState, ChangeEvent } from "react";
 import { Combobox } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
-import MultiNutrientListing from "./MultiNutrientListing";
 import ingredients from "../app/data/ingredients";
 import { Ingredient, ApiResponse, Nutrient } from "../types";
+import { fetchNutrients } from "../utils/extApis";
+import {
+  compareObjects,
+  moveZerosToEnd,
+  combineNutrientArrays,
+} from "../utils/NutrientHandling";
+import { toast } from "react-hot-toast";
 
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
-const customUnitOrder: string[] = ["kcal", "IU", "µg", "mg", "g", "kg"];
 const foods = ingredients;
-const images: string[] = [];
-
-function compareObjects(a: Nutrient, b: Nutrient): number {
-  const unitA = a.unit.toLowerCase();
-  const unitB = b.unit.toLowerCase();
-  const valueA = a.amount;
-  const valueB = b.amount;
-
-  const indexA = customUnitOrder.indexOf(unitA);
-  const indexB = customUnitOrder.indexOf(unitB);
-
-  if (indexA === indexB) {
-    return valueB - valueA;
-  }
-
-  return indexB - indexA;
-}
-
-function moveZerosToEnd(arr: Nutrient[]): Nutrient[] {
-  const zeros = arr.filter((item) => item.amount === 0);
-  const nonZeros = arr.filter((item) => item.amount !== 0);
-  return [...nonZeros, ...zeros];
-}
-
-function combineNutrientArrays(dataArray) {
-  return dataArray.reduce((accumulator, currentArray) => {
-    currentArray.forEach((currentNutrient) => {
-      const existingNutrient = accumulator.find(
-        (nutrient: Nutrient) => nutrient.name === currentNutrient.name
-      );
-
-      if (existingNutrient) {
-        existingNutrient.amount += currentNutrient.amount;
-        existingNutrient.percentOfDailyNeeds +=
-          currentNutrient.percentOfDailyNeeds;
-      } else {
-        accumulator.push({ ...currentNutrient });
-      }
-    });
-
-    return accumulator;
-  }, []);
-}
 
 function classNames(...classes: (string | boolean)[]) {
   return classes.filter(Boolean).join(" ");
 }
 
-export default function MultiComboBox() {
+export default function MultiComboBox({
+  selectedFood,
+  setSelectedFood,
+  handleApiResult,
+  setApiResult, // Receive setApiResult function
+}: {
+  selectedFood: Ingredient[];
+  setSelectedFood: React.Dispatch<React.SetStateAction<Ingredient[]>>;
+  handleApiResult: (result: Nutrient[], fetchedImages: string[]) => void;
+  setApiResult: React.Dispatch<React.SetStateAction<Nutrient[] | null>>; // Define the type for setApiResult
+}) {
   const [query, setQuery] = useState<string>("");
-  const [selectedfood, setSelectedfood] = useState<Ingredient[] | null>([]);
-  const [apiResult, setApiResult] = useState<any | null>(null);
 
   const handleApiCall = async () => {
-    if (selectedfood && Array.isArray(selectedfood)) {
+    if (selectedFood && Array.isArray(selectedFood)) {
       // empty array before pushing new image data
-      images.length = 0;
-      const fetchPromises = selectedfood.map((food) => {
+      const fetchedImages: string[] = []; // Initialize the array
+      const fetchPromises = selectedFood.map((food) => {
         const foodId = food.ingredientId;
         return fetch(
           `https://api.spoonacular.com/food/ingredients/${foodId}/information?apiKey=${ApiKey}&amount=100&unit=grams`
         )
           .then((response) => response.json())
           .then((data) => {
-            images.push(data.image);
+            fetchedImages.push(data.image); // Push the image
             data.nutrition.nutrients.sort(compareObjects);
             const sortedNutrients = moveZerosToEnd(data.nutrition.nutrients);
             return sortedNutrients;
           })
           .catch((error) => {
             console.log(error);
+            toast.error("Error fetching nutrients");
             return null;
           });
       });
 
       Promise.all(fetchPromises)
         .then((results) => {
-          // 'results' will be an array containing the processed data of each item in 'selectedfood'
           const combinedArray = combineNutrientArrays(results);
           let sortedArray = combinedArray.sort(compareObjects);
           sortedArray = moveZerosToEnd(sortedArray);
           setApiResult(sortedArray);
+          handleApiResult(sortedArray, fetchedImages); // Pass fetchedImages back to parent
         })
         .catch((error) => {
           console.log(error);
@@ -111,23 +82,11 @@ export default function MultiComboBox() {
 
   return (
     <>
-      <div>
-        Selected ingredients:
-        <div className="capitalize pb-4">
-          {selectedfood?.map((f) => (
-            <span
-              key={f.ingredient}
-              className="mt-2 inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 mx-1 text-xs font-medium text-stone-200"
-            >
-              {f.ingredient}
-            </span>
-          ))}
-        </div>
-      </div>
       <Combobox
         as="div"
-        value={selectedfood}
-        onChange={setSelectedfood}
+        value={selectedFood}
+        onChange={setSelectedFood}
+        //@ts-ignore
         multiple
       >
         <Combobox.Label className="block text-sm font-medium leading-6 text-stone-300"></Combobox.Label>
@@ -192,9 +151,6 @@ export default function MultiComboBox() {
       >
         Show nutrients for the selected ingredients
       </button>
-      {apiResult && (
-        <MultiNutrientListing nutrients={apiResult} images={images} />
-      )}
     </>
   );
 }
