@@ -29,7 +29,7 @@ function classNames(...classes: string[]) {
 
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 
-const revalidationTime: number = 600; // 10 minutes
+const revalidationTime: number = 5; // 5 seconds
 
 export default function DataTable({
   selectedFood,
