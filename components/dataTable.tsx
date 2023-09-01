@@ -46,8 +46,6 @@ export default function DataTable({
   const [selectedDishes, setSelectedDishes] = useState<Dish[]>([]);
   const [dishes, setDishes] = useState<Dish[]>([]);
 
-  const revalidationTime: number = 0; // 5 seconds
-
   const handleApiCall = async () => {
     if (selectedFood && Array.isArray(selectedFood)) {
       // empty array before pushing new image data
@@ -89,7 +87,6 @@ export default function DataTable({
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-        next: { revalidate: revalidationTime },
       }).then(async (res) => {
         setDishes(await res.json());
       });
