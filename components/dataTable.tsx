@@ -29,8 +29,6 @@ function classNames(...classes: string[]) {
 
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 
-const revalidationTime: number = 5; // 5 seconds
-
 export default function DataTable({
   selectedFood,
   setSelectedFood,
@@ -89,7 +87,6 @@ export default function DataTable({
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-        cache: "no-store",
       }).then(async (res) => {
         setDishes(await res.json());
       });
