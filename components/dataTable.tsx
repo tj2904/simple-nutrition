@@ -89,7 +89,7 @@ export default function DataTable({
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-        next: { revalidate: revalidationTime },
+        cache: "no-store",
       }).then(async (res) => {
         setDishes(await res.json());
       });
