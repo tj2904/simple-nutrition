@@ -29,8 +29,6 @@ function classNames(...classes: string[]) {
 
 let ApiKey: string | undefined = process.env.NEXT_PUBLIC_API_KEY;
 
-const revalidationTime: number = 5; // 5 seconds
-
 export default function DataTable({
   selectedFood,
   setSelectedFood,
@@ -47,6 +45,8 @@ export default function DataTable({
   const [indeterminate, setIndeterminate] = useState(false);
   const [selectedDishes, setSelectedDishes] = useState<Dish[]>([]);
   const [dishes, setDishes] = useState<Dish[]>([]);
+
+  const revalidationTime: number = 0; // 5 seconds
 
   const handleApiCall = async () => {
     if (selectedFood && Array.isArray(selectedFood)) {
@@ -89,7 +89,7 @@ export default function DataTable({
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
-        cache: "no-store",
+        next: { revalidate: revalidationTime },
       }).then(async (res) => {
         setDishes(await res.json());
       });
