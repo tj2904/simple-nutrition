@@ -8,6 +8,7 @@ import {
   combineNutrientArrays,
 } from "../utils/NutrientHandling";
 import { toast } from "react-hot-toast";
+import LoadingDots from "./loading-dots";
 
 interface Dish {
   id: number;
@@ -45,6 +46,7 @@ export default function DataTable({
   const [indeterminate, setIndeterminate] = useState(false);
   const [selectedDishes, setSelectedDishes] = useState<Dish[]>([]);
   const [dishes, setDishes] = useState<Dish[]>([]);
+  const [loading, setLoading] = useState(false);
 
   const handleApiCall = async () => {
     if (selectedFood && Array.isArray(selectedFood)) {
@@ -84,11 +86,13 @@ export default function DataTable({
   };
 
   useEffect(() => {
+    setLoading(true);
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
       }).then(async (res) => {
         setDishes(await res.json());
+        setLoading(false);
       });
     }
     fetchData();
@@ -158,85 +162,94 @@ export default function DataTable({
           <div className="m-1 flow-root">
             <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
               <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
-                <table className="min-w-full divide-y divide-slate-300 table-fixed">
-                  <thead>
-                    <tr>
-                      <th scope="col" className="relative px-7 sm:w-12 sm:px-6">
-                        <input
-                          type="checkbox"
-                          className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                          // @ts-ignore
-                          ref={checkbox}
-                          checked={checked}
-                          onChange={toggleAll}
-                        />
-                      </th>
-                      <th
-                        scope="col"
-                        className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-slate-300"
-                      >
-                        Name
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-3 py-3.5 text-left text-sm font-semibold text-slate-300"
-                      >
-                        Ingredients
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-slate-600">
-                    {dishes.map((dish) => (
-                      <tr
-                        key={dish.id}
-                        className={
-                          selectedDishes.includes(dish)
-                            ? "bg-slate-600"
-                            : undefined
-                        }
-                      >
-                        <td className="relative px-7 sm:w-12 sm:px-6">
-                          {selectedDishes.includes(dish) && (
-                            <div className="absolute inset-y-0 left-0 w-0.5 bg-indigo-600" />
-                          )}
+                {loading ? (
+                  <div className="flex justify-center m-8">
+                    <LoadingDots color="#fff" />
+                  </div>
+                ) : (
+                  <table className="min-w-full divide-y divide-slate-300 table-fixed">
+                    <thead>
+                      <tr>
+                        <th
+                          scope="col"
+                          className="relative px-7 sm:w-12 sm:px-6"
+                        >
                           <input
                             type="checkbox"
                             className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            value={dish.id}
-                            checked={selectedDishes.includes(dish)}
-                            onChange={(e) =>
-                              setSelectedDishes(
-                                e.target.checked
-                                  ? [...selectedDishes, dish]
-                                  : selectedDishes.filter((p) => p !== dish)
-                              )
-                            }
+                            // @ts-ignore
+                            ref={checkbox}
+                            checked={checked}
+                            onChange={toggleAll}
                           />
-                        </td>
-                        <td
-                          className={classNames(
-                            "whitespace-nowrap py-4 pr-3 text-sm font-medium",
-                            selectedDishes.includes(dish)
-                              ? "text-slate-200"
-                              : "text-slate-300"
-                          )}
+                        </th>
+                        <th
+                          scope="col"
+                          className="min-w-[12rem] py-3.5 pr-3 text-left text-sm font-semibold text-slate-300"
                         >
-                          {dish.name}
-                        </td>
-                        <td className="px-3 py-4 text-sm">
-                          {dish.ingredients.map((i) => (
-                            <span
-                              key={`${i.ingredientId}-${i.name}`}
-                              className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-normal text-center text-stone-200"
-                            >
-                              {i.name}
-                            </span>
-                          ))}
-                        </td>
+                          Name
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-3 py-3.5 text-left text-sm font-semibold text-slate-300"
+                        >
+                          Ingredients
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-slate-600">
+                      {dishes.map((dish) => (
+                        <tr
+                          key={dish.id}
+                          className={
+                            selectedDishes.includes(dish)
+                              ? "bg-slate-600"
+                              : undefined
+                          }
+                        >
+                          <td className="relative px-7 sm:w-12 sm:px-6">
+                            {selectedDishes.includes(dish) && (
+                              <div className="absolute inset-y-0 left-0 w-0.5 bg-indigo-600" />
+                            )}
+                            <input
+                              type="checkbox"
+                              className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
+                              value={dish.id}
+                              checked={selectedDishes.includes(dish)}
+                              onChange={(e) =>
+                                setSelectedDishes(
+                                  e.target.checked
+                                    ? [...selectedDishes, dish]
+                                    : selectedDishes.filter((p) => p !== dish)
+                                )
+                              }
+                            />
+                          </td>
+                          <td
+                            className={classNames(
+                              "whitespace-nowrap py-4 pr-3 text-sm font-medium",
+                              selectedDishes.includes(dish)
+                                ? "text-slate-200"
+                                : "text-slate-300"
+                            )}
+                          >
+                            {dish.name}
+                          </td>
+                          <td className="px-3 py-4 text-sm">
+                            {dish.ingredients.map((i) => (
+                              <span
+                                key={`${i.ingredientId}-${i.name}`}
+                                className=" inline-flex items-center rounded-full bg-slate-600 ring-1 ring-slate-500 ring-inset px-2 py-1 m-1 text-xs font-normal text-center text-stone-200"
+                              >
+                                {i.name}
+                              </span>
+                            ))}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                )}
               </div>
             </div>
           </div>
