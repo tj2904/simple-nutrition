@@ -13,6 +13,7 @@ import LoadingDots from "./loading-dots";
 interface Dish {
   id: number;
   name: string;
+  description: string;
   ingredients: {
     forEach(arg0: (ingredient: any) => void): unknown;
     map(
@@ -191,7 +192,7 @@ export default function DataTable({
                         </th>
                         <th
                           scope="col"
-                          className="px-3 py-3.5 text-left text-sm font-semibold text-slate-300"
+                          className="hidden px-3 py-3.5 text-left text-sm font-semibold text-slate-300 md:table-cell"
                         >
                           Ingredients
                         </th>
@@ -227,15 +228,19 @@ export default function DataTable({
                           </td>
                           <td
                             className={classNames(
-                              "whitespace-nowrap py-4 pr-3 text-sm font-medium",
+                              "whitespace-nowrap pr-3 text-sm font-medium",
                               selectedDishes.includes(dish)
                                 ? "text-slate-200"
-                                : "text-slate-300"
+                                : "text-slate-300",
+                              dish.description === null ? " py-4" : "py-2"
                             )}
                           >
-                            {dish.name}
+                            <div className="font-semibold"> {dish.name}</div>
+                            <div className="mt-1 truncate text-slate-400">
+                              {dish.description}
+                            </div>
                           </td>
-                          <td className="px-3 py-4 text-sm">
+                          <td className="hidden px-3 py-4 text-sm md:table-cell">
                             {dish.ingredients.map((i) => (
                               <span
                                 key={`${i.ingredientId}-${i.name}`}
