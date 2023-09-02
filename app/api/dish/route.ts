@@ -3,7 +3,7 @@ import { NextApiRequest, NextApiResponse } from "next";
 import { NextResponse } from "next/server";
 
 export async function POST(req: Request) {
-  const { name, ingredients } = await req.json();
+  const { userEmail, name, ingredients, description } = await req.json();
   // const exists = await prisma.dish.findUnique({
   //   where: {
   //     name,
@@ -15,7 +15,9 @@ export async function POST(req: Request) {
   {
     const dish = await prisma.dish.create({
       data: {
+        userEmail,
         name,
+        description,
         ingredients: {
           create: ingredients.map((ingredient: any) => ({
             name: ingredient.ingredient,

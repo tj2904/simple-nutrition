@@ -19,7 +19,7 @@ export default function SaveAsDish({ selectedFood }: any) {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        userId: session?.user?.email,
+        userEmail: session?.user?.email,
         name: dishName,
         description: dishDescription,
         ingredients: selectedFood,
