@@ -33,7 +33,7 @@ export default function SaveAsDish({ selectedFood }: any) {
 
   return (
     <>
-      <div className="md:w-3/4 md:mx-auto mt-4 border rounded p-3 mx-4 bg-slate-600/60">
+      <div className="md:w-3/4 md:mx-auto mt-4 border rounded border-slate-800/60 p-3 mx-4 bg-slate-600/60">
         <h1 className="text-xl font-bold mb-2">
           Save these ingredients as a Dish
         </h1>
