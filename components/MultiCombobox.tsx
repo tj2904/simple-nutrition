@@ -4,7 +4,6 @@ import { Combobox } from "@headlessui/react";
 import { HiCheck, HiChevronUpDown } from "react-icons/hi2";
 import ingredients from "../app/data/ingredients";
 import { Ingredient, ApiResponse, Nutrient } from "../types";
-import { fetchNutrients } from "../utils/extApis";
 import {
   compareObjects,
   moveZerosToEnd,
@@ -49,8 +48,18 @@ export default function MultiComboBox({
             return sortedNutrients;
           })
           .catch((error) => {
-            console.log(error);
-            toast.error("Error fetching nutrients");
+            console.log("api call error: ", error);
+            const capitalisedIngredient = food.ingredient.replace(
+              /(^\w{1})|(\s+\w{1})/g,
+              (letter: string) => letter.toUpperCase()
+            );
+            console.log(
+              "The ingredient searched for is: ",
+              foodId + " " + capitalisedIngredient
+            );
+            toast.error(
+              "Error fetching nutrients for " + capitalisedIngredient
+            );
             return null;
           });
       });
@@ -64,7 +73,7 @@ export default function MultiComboBox({
           handleApiResult(sortedArray, fetchedImages); // Pass fetchedImages back to parent
         })
         .catch((error) => {
-          console.log(error);
+          console.log("Promise all: ", error);
         });
     }
   };
