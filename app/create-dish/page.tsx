@@ -1,7 +1,7 @@
 "use client";
 import MultiComboBoxSearch from "@/components/MultiComboboxSearch";
 import { useState } from "react";
-import { Ingredient, Nutrient } from "../../types";
+import { Ingredient } from "../../types";
 import SelectedIngredientListing from "@/components/selectedIngredientListing";
 import SaveAsDish from "@/components/SaveAsDish";
 
@@ -43,6 +43,12 @@ export default function SearchIndex() {
           <div className="mt-6">
             <SaveAsDish selectedFood={selectedFood} />
           </div>
+          <button
+            onClick={() => location.reload()}
+            className=" mt-8 w-72 border-stone-400 bg-slate-700 text-white hover:bg-white hover:text-slate-700  h-10  items-center justify-center rounded-md border text-sm transition-all focus:outline-none"
+          >
+            Create another dish, or start again
+          </button>
         </div>
       </div>
     </div>
