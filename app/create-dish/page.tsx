@@ -40,7 +40,9 @@ export default function SearchIndex() {
             selectedFood={selectedFood}
             setSelectedFood={setSelectedFood}
           />
-          <SaveAsDish selectedFood={selectedFood} />
+          <div className="mt-6">
+            <SaveAsDish selectedFood={selectedFood} />
+          </div>
         </div>
       </div>
     </div>
