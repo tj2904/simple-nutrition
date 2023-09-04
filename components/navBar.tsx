@@ -64,6 +64,16 @@ export default function NavBar() {
                       Search
                     </a>
                     <a
+                      href="/create-dish"
+                      className={`rounded-md px-3 py-2 text-sm font-medium ${
+                        pathname === "/create-dish"
+                          ? "bg-gray-800 text-white"
+                          : "text-gray-300 hover:bg-gray-600 hover:text-white"
+                      }`}
+                    >
+                      Create a Dish
+                    </a>
+                    <a
                       href="/dishes"
                       className={`rounded-md px-3 py-2 text-sm font-medium ${
                         pathname === "/dishes"
@@ -194,6 +204,17 @@ export default function NavBar() {
                 } px-3 py-2 text-base font-medium`}
               >
                 Search
+              </Disclosure.Button>
+              <Disclosure.Button
+                as="a"
+                href="/create-dish"
+                className={`block rounded-md ${
+                  pathname === "/create-dish"
+                    ? "bg-gray-900 text-white"
+                    : "text-gray-400 hover:bg-gray-600 hover:text-white"
+                } px-3 py-2 text-base font-medium`}
+              >
+                Create a Dish
               </Disclosure.Button>
               <Disclosure.Button
                 as="a"
