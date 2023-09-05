@@ -61,13 +61,24 @@ export default function DataTable({
           .then((response) => response.json())
           .then((data) => {
             fetchedImages.push(data.image); // Push the image
-            data.nutrition.nutrients.sort(compareObjects);
+            
+data.nutrition.nutrients.sort(compareObjects);
             const sortedNutrients = moveZerosToEnd(data.nutrition.nutrients);
             return sortedNutrients;
           })
           .catch((error) => {
-            console.log(error);
-            toast.error("Error fetching nutrients");
+            console.log("api call error: ", error);
+            const capitalisedIngredient = food.ingredient.replace(
+              /(^\w{1})|(\s+\w{1})/g,
+              (letter: string) => letter.toUpperCase()
+            );
+            console.log(
+              "The ingredient searched for is: ",
+              foodId + " " + capitalisedIngredient
+            );
+            toast.error(
+              "Error fetching nutrients for " + capitalisedIngredient
+            );
             return null;
           });
       });
