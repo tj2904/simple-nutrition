@@ -1,4 +1,3 @@
-"use client";
 import Link from "next/link";
 
 export default function Home() {
@@ -44,14 +43,6 @@ export default function Home() {
               Search Ingredients
             </button>
           </Link>
-          <button
-            type="button"
-            onClick={() => {
-              throw new Error("Sentry Frontend Error");
-            }}
-          >
-            Throw error
-          </button>
         </div>
       </div>
     </div>
