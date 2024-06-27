@@ -1156,8 +1156,8 @@ packages:
     resolution: {integrity: sha512-oVhqoRDaBXf7sjkll95LHVS6Myyyb1zaunVwk4Z0+WPSW4gjS0pl01zYKHScTuyEhQsFxV5L4DR5r+YqSyqyyg==}
     hasBin: true
 
-  jose@4.14.4:
-    resolution: {integrity: sha512-j8GhLiKmUAh+dsFXlX1aJCbt5KMibuKb+d7j1JaOJG6s2UjX1PQlW+OKB/sD4a/5ZYF4RcmYmLSndOoU3Lt/3g==}
+  jose@4.15.7:
+    resolution: {integrity: sha512-L7ioP+JAuZe8v+T5+zVI9Tx8LtU8BL7NxkyDFVMv+Qr3JW0jSoYDedLtodaXwfqMpeCyx4WXFNyu9tJt4WvC1A==}
 
   js-tokens@4.0.0:
     resolution: {integrity: sha512-RdJUflcE3cUzKiMqQgsCu06FPu9UdIJO0beYbPhHN4k6apgJtifcoCtT9bcxOpYBtpD2kCM6Sbzg4CausW/PKQ==}
@@ -3182,7 +3182,7 @@ snapshots:
 
   jiti@1.19.1: {}
 
-  jose@4.14.4: {}
+  jose@4.15.7: {}
 
   js-tokens@4.0.0: {}
 
@@ -3313,7 +3313,7 @@ snapshots:
       '@babel/runtime': 7.22.6
       '@panva/hkdf': 1.1.1
       cookie: 0.5.0
-      jose: 4.14.4
+      jose: 4.15.7
       next: 13.4.10(react-dom@18.2.0(react@18.2.0))(react@18.2.0)
       oauth: 0.9.15
       openid-client: 5.4.3
@@ -3445,7 +3445,7 @@ snapshots:
 
   openid-client@5.4.3:
     dependencies:
-      jose: 4.14.4
+      jose: 4.15.7
       lru-cache: 6.0.0
       object-hash: 2.2.0
       oidc-token-hash: 5.0.3
