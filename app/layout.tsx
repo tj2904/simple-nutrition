@@ -2,6 +2,7 @@
 import "@/styles/globals.css";
 import { Analytics } from "@vercel/analytics/react";
 import { Metadata } from "next";
+import type { Viewport } from "next";
 import { Inter } from "next/font/google";
 import { Toaster } from "react-hot-toast";
 import AuthStatus from "@/components/auth-status";
@@ -29,6 +30,9 @@ export const metadata: Metadata = {
     description,
   },
   metadataBase: new URL("https://simple-nutrition.vercel.app"),
+};
+
+export const viewport: Viewport = {
   themeColor: "#334155",
 };
 
