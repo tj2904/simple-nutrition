@@ -18,7 +18,7 @@ Eventually, you will be able to log foods each day and get an overview of the nu
 
 This project uses:
 
-- NextJS 13
+- NextJS 13 with Typescript
 - Next Auth
 - PostgreSQL
 - Prisma
