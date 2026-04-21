@@ -1,0 +1,63 @@
+/**
+ * GitHub Actions Workflow for Testing
+ * Runs test suite on pull requests and main branch
+ */
+
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [18.x, 20.x]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v2
+        with:
+          version: 8
+
+      - name: Setup Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Run linter
+        run: pnpm lint
+
+      - name: Run tests with coverage
+        run: pnpm test:ci
+        env:
+          NEXTAUTH_SECRET: ${{ secrets.NEXTAUTH_SECRET || 'test-secret-key' }}
+          NEXTAUTH_URL: http://localhost:3000
+
+      - name: Upload coverage reports
+        uses: codecov/codecov-action@v3
+        if: matrix.node-version == '20.x'
+        with:
+          files: ./coverage/lcov.info
+          flags: unittests
+          name: codecov-umbrella
+          fail_ci_if_error: false
+
+      - name: Comment PR with coverage
+        uses: romeovs/lcov-reporter-action@v0.3.1
+        if: github.event_name == 'pull_request'
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          lcov-file: ./coverage/lcov.info
