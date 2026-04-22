@@ -1,7 +1,5 @@
-/**
- * GitHub Actions Workflow for Testing
- * Runs test suite on pull requests and main branch
- */
+# GitHub Actions Workflow for Testing
+# Runs test suite on pull requests and main branch
 
 name: Tests
 

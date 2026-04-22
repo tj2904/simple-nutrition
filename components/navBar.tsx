@@ -43,7 +43,7 @@ export default function NavBar() {
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <a
+                    <Link
                       href="/"
                       className={`rounded-md px-3 py-2 text-sm font-medium ${
                         pathname === "/"
@@ -52,8 +52,8 @@ export default function NavBar() {
                       }`}
                     >
                       Home
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="/multi-search"
                       className={`rounded-md px-3 py-2 text-sm font-medium ${
                         pathname === "/multi-search"
@@ -62,8 +62,8 @@ export default function NavBar() {
                       }`}
                     >
                       Search
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="/create-dish"
                       className={`rounded-md px-3 py-2 text-sm font-medium ${
                         pathname === "/create-dish"
@@ -72,8 +72,8 @@ export default function NavBar() {
                       }`}
                     >
                       Create a Dish
-                    </a>
-                    <a
+                    </Link>
+                    <Link
                       href="/dishes"
                       className={`rounded-md px-3 py-2 text-sm font-medium ${
                         pathname === "/dishes"
@@ -82,7 +82,7 @@ export default function NavBar() {
                       }`}
                     >
                       Saved Dishes
-                    </a>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -129,7 +129,7 @@ export default function NavBar() {
                           </Menu.Item>
                           <Menu.Item>
                             {({ active }) => (
-                              <a
+                              <Link
                                 href="/profile"
                                 className={classNames(
                                   active ? "bg-gray-100" : "",
@@ -137,7 +137,7 @@ export default function NavBar() {
                                 )}
                               >
                                 Your Profile
-                              </a>
+                              </Link>
                             )}
                           </Menu.Item>
 
