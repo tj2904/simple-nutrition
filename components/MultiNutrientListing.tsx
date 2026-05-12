@@ -1,4 +1,5 @@
 import { GoXCircleFill } from "react-icons/go";
+import Image from "next/image";
 import { Nutrient } from "types";
 
 export default function MultiNutritionalListing(props: any) {
@@ -24,11 +25,13 @@ export default function MultiNutritionalListing(props: any) {
       </h2>
       <div className="isolate flex -space-x-1 mt-1">
         {images.reverse().map((i: any, index: number) => (
-          <img
+          <Image
             className="inline-block h-10 w-10 rounded-full ring-2 ring-slate-700 bg-white"
             src={`https://spoonacular.com/cdn/ingredients_100x100/${i}`}
             alt={`Stock photo - ${i}`}
             key={`${i}-${index}`}
+            width={40}
+            height={40}
           />
         ))}
       </div>
@@ -38,7 +41,7 @@ export default function MultiNutritionalListing(props: any) {
       >
         {nutrients.map((nutrient: Nutrient, index: number) => {
           const containsWord: Boolean = badNutrients.some((word) =>
-            nutrient.name.includes(word)
+            nutrient.name.includes(word),
           );
           let itemClassName = "";
           if (!containsWord && nutrient.amount > 0) {
