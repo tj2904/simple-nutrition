@@ -17,7 +17,7 @@ interface Dish {
   ingredients: {
     forEach(arg0: (ingredient: any) => void): unknown;
     map(
-      arg0: (ingredient: any) => import("react").JSX.Element
+      arg0: (ingredient: any) => import("react").JSX.Element,
     ): import("react").ReactNode;
     ingredientId: number;
     name: string;
@@ -42,12 +42,13 @@ export default function DataTable({
   handleApiResult: (result: Nutrient[], fetchedImages: string[]) => void;
   setApiResult: React.Dispatch<React.SetStateAction<Nutrient[] | null>>; // Define the type for setApiResult
 }) {
-  const checkbox = useRef();
-  const [checked, setChecked] = useState(false);
-  const [indeterminate, setIndeterminate] = useState(false);
+  const checkbox = useRef<HTMLInputElement>(null);
   const [selectedDishes, setSelectedDishes] = useState<Dish[]>([]);
   const [dishes, setDishes] = useState<Dish[]>([]);
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
+  const indeterminate =
+    selectedDishes.length > 0 && selectedDishes.length < dishes.length;
+  const checked = selectedDishes.length === dishes.length;
 
   const handleApiCall = async () => {
     if (selectedFood && Array.isArray(selectedFood)) {
@@ -56,7 +57,7 @@ export default function DataTable({
       const fetchPromises = selectedFood.map((food) => {
         const foodId = food.ingredientId;
         return fetch(
-          `https://api.spoonacular.com/food/ingredients/${foodId}/information?apiKey=${ApiKey}&amount=100&unit=grams`
+          `https://api.spoonacular.com/food/ingredients/${foodId}/information?apiKey=${ApiKey}&amount=100&unit=grams`,
         )
           .then((response) => response.json())
           .then((data) => {
@@ -87,7 +88,6 @@ export default function DataTable({
   };
 
   useEffect(() => {
-    setLoading(true);
     async function fetchData() {
       await fetch("/api/dish/all", {
         method: "GET",
@@ -100,18 +100,13 @@ export default function DataTable({
   }, []);
 
   useLayoutEffect(() => {
-    const isIndeterminate =
-      selectedDishes.length > 0 && selectedDishes.length < dishes.length;
-    setChecked(selectedDishes.length === dishes.length);
-    setIndeterminate(isIndeterminate);
-    // @ts-ignore
-    checkbox.current.indeterminate = isIndeterminate;
-  }, [selectedDishes, dishes.length]);
+    if (checkbox.current) {
+      checkbox.current.indeterminate = indeterminate;
+    }
+  }, [indeterminate]);
 
   function toggleAll() {
     setSelectedDishes(checked || indeterminate ? [] : dishes);
-    setChecked(!checked && !indeterminate);
-    setIndeterminate(false);
   }
 
   const lookUpAllIngredients = async () => {
@@ -133,7 +128,7 @@ export default function DataTable({
         }
         return uniqueList;
       },
-      [] as Ingredient[]
+      [] as Ingredient[],
     );
     setSelectedFood(uniqueIngredients);
 
@@ -178,7 +173,6 @@ export default function DataTable({
                           <input
                             type="checkbox"
                             className="absolute left-4 top-1/2 -mt-2 h-4 w-4 rounded border-gray-300 text-indigo-600 focus:ring-indigo-600"
-                            // @ts-ignore
                             ref={checkbox}
                             checked={checked}
                             onChange={toggleAll}
@@ -221,7 +215,7 @@ export default function DataTable({
                                 setSelectedDishes(
                                   e.target.checked
                                     ? [...selectedDishes, dish]
-                                    : selectedDishes.filter((p) => p !== dish)
+                                    : selectedDishes.filter((p) => p !== dish),
                                 )
                               }
                             />
@@ -232,7 +226,7 @@ export default function DataTable({
                               selectedDishes.includes(dish)
                                 ? "text-slate-200"
                                 : "text-slate-300",
-                              dish.description === null ? " py-4" : "py-2"
+                              dish.description === null ? " py-4" : "py-2",
                             )}
                           >
                             <div className="font-semibold"> {dish.name}</div>

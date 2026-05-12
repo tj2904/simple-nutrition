@@ -4,10 +4,17 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   swcMinify: true,
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "spoonacular.com",
+      },
+    ],
+  },
 };
 
 module.exports = nextConfig;
-
 
 // Injected content via Sentry wizard below
 
@@ -43,5 +50,5 @@ module.exports = withSentryConfig(
 
     // Automatically tree-shake Sentry logger statements to reduce bundle size
     disableLogger: true,
-  }
+  },
 );
